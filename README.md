@@ -1,6 +1,6 @@
-# Arin
+# Agin
 
-**Arin** is a one-stop machine learning solution designed to streamline your ML workflows with easy-to-use utilities and a flexible structure.
+**Agin** is a one-stop machine learning solution designed to streamline your ML workflows with easy-to-use utilities and a flexible structure.
 
 ## **Features**
 - Modular design for efficient machine learning workflows.
@@ -15,8 +15,8 @@
 Clone this repository to your local machine:
 
 ```bash
-git clone https://github.com/Agnik7/Arin.git
-cd Arin
+git clone https://github.com/Agnik7/Agin.git
+cd Agin
 ```
 
 ### **Step 2: Set Up a Virtual Environment**
@@ -57,7 +57,7 @@ pip install -e .
 Once installed, you can import and use the library as follows:
 
 ```python
-from Arin import Health
+from agin import Health
 
 # Create an instance of the Health class
 h = Health()
