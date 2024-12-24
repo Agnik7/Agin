@@ -1,11 +1,20 @@
 import numpy as np
 
-class LinearRegressionModel:
+class LinearRegression:
     def __init__(self):
         self.slope = None
         self.intercept = None
 
     def fit(self, x, y):
+        """ 
+        Function to train the Linear Regression model based on data given by user. Calculates and stores the slope and intercept
+
+        Args: 
+            x,y: Lists containing the training X and Y datas
+        
+        Returns:
+            None
+        """
         # Convert to numpy arrays
         x_train = np.array(x)
         y_train = np.array(y)
@@ -27,33 +36,36 @@ class LinearRegressionModel:
         self.intercept = mean_value_y - (self.slope * mean_value_x)
 
     def predict(self, x):
+        """ 
+        Function to find the value(s) predicted by the model.
+
+        Args: 
+            x: List containing test_x data
+        
+        Returns:
+            Float[]: Returns values predicted using Linear Regression.
+        """
         x_test = np.array(x)
         return (self.slope * x_test) + self.intercept
 
     def metrics(self, y_pred, y_test):
         # Manually calculate Mean Squared Error (MSE)
+        """ 
+        Function to calculate the mean squared error
+
+        Args: 
+            y_pred,y_test: Lists containing predicted and expected output values respectively
+        
+        Returns:
+            Float: Returns the mse of the model.
+        """
+
+        # Calculate Mean Squared Error (MSE)
         squared_errors = [(y_true - y_pred) ** 2 for y_true, y_pred in zip(y_test, y_pred)]
         mse = np.mean(squared_errors)
-        print(f"Mean Squared Error: {mse:.4f}")
 
-if __name__ == "__main__":
-    # Training data
-    x_train = [1, 2, 3, 4, 5]
-    y_train = [2, 4, 6, 8, 10]
-
-    # Testing data
-    x_test = [0, 1, 2, 3, 4, 5]
-    y_test = [1, 3, 5, 7, 9, 11]
-
-    # Initialize the model
-    model = LinearRegressionModel()
-
-    # Fit the model
-    model.fit(x_train, y_train)
-
-    # Predict using the model
-    y_pred = model.predict(x_test)
-    print("Predicted values:", y_pred)
-
-    # Calculate and print metrics (MSE)
-    model.metrics(y_pred, y_test)
+        # Calculate R2 Score (R2)
+        total_variance = np.sum((y_test - np.mean(y_test)) ** 2)
+        explained_variance = np.sum((y_pred - np.mean(y_test)) ** 2)
+        r2 = explained_variance / total_variance
+        return mse, r2
