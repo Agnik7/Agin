@@ -1,12 +1,13 @@
-# Home
+# **Home**
 
-Welcome to the **Agin** documentation! Agin is a Python package designed to provide utilities and models for developers. It currently includes health-check utilities and a linear regression implementation.
+**Agin** is a one-stop machine learning solution designed to streamline your ML workflows with easy-to-use utilities and a flexible structure.
 
-## Features
-- **Health Check**: A utility to ensure your project is working correctly.
-- **Linear Regression**: A simple and effective linear regression model for data analysis.
+## **Features**
+- Modular design for efficient machine learning workflows.
+- Easy integration with existing Python projects.
+- Simple and intuitive API.
 
-## Installation
+## **Installation**
 To install the package, use:
 ```bash
 pip install agin
@@ -14,7 +15,7 @@ pip install agin
 
 ---
 
-# Components
+# **Components**
 
 For detailed information, see the following sections:
 
