@@ -303,6 +303,30 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
@@ -332,15 +356,6 @@
         
       </ul>
     </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example
-    </span>
-  </a>
   
 </li>
         
@@ -414,6 +429,30 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
@@ -446,15 +485,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -479,6 +509,25 @@
 <p>The <code>utils</code> module provides utility classes and methods to enhance your project.</p>
 <h2 id="health-class"><strong>Health Class</strong></h2>
 <p>The <code>Health</code> class helps ensure the package is functioning correctly by providing a simple health-check mechanism.</p>
+<h3 id="usage"><strong>Usage</strong></h3>
+<p>The <code>Health</code> class can be imported directly from the <code>agin</code> package or from the <code>agin.utils</code> module:</p>
+<pre><code class="language-python">from agin import Health
+# or
+from agin.utils import Health
+</code></pre>
+<h4 id="example"><strong>Example</strong></h4>
+<pre><code class="language-python"># Option 1: Importing directly from agin
+from agin import Health
+
+# Option 2: Importing from agin.utils
+from agin.utils import Health
+
+# Create a Health object
+health = Health(&quot;Excellent&quot;)
+
+# Check the health status
+print(health.check_health())  # Output: Health status: Excellent
+</code></pre>
 <h3 id="methods"><strong>Methods</strong></h3>
 <h4 id="__init__statusgood"><strong><code>__init__(status="Good")</code></strong></h4>
 <ul>
@@ -491,15 +540,6 @@
 <li><strong>Args</strong>: None</li>
 <li><strong>Returns</strong>: String representing the health status.</li>
 </ul>
-<h3 id="example"><strong>Example</strong></h3>
-<pre><code class="language-python">from agin import Health
-
-# Create a Health object
-health_check = Health(&quot;Excellent&quot;)
-
-# Check the health status
-print(health_check.check_health())  # Output: Health status: Excellent
-</code></pre>
 
 
 
