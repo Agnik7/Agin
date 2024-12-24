@@ -321,6 +321,30 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
@@ -359,15 +383,6 @@
         
       </ul>
     </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example
-    </span>
-  </a>
   
 </li>
         
@@ -421,6 +436,30 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#methods" class="md-nav__link">
     <span class="md-ellipsis">
       Methods
@@ -462,15 +501,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -497,28 +527,19 @@
 <li><strong>Linear Regression</strong></li>
 </ul>
 <h2 id="linear-regression"><strong>Linear Regression</strong></h2>
-<p>The <code>LinearRegression</code> class provides methods to train a linear regression model, make predictions, and evaluate the model's performance.</p>
-<h3 id="methods"><strong>Methods</strong></h3>
-<h4 id="fitx-y"><strong><code>fit(x, y)</code></strong></h4>
-<ul>
-<li>Trains the model based on the input data.</li>
-<li><strong>Args</strong>: <code>x</code> (list), <code>y</code> (list)</li>
-<li><strong>Returns</strong>: None</li>
-</ul>
-<h4 id="predictx"><strong><code>predict(x)</code></strong></h4>
-<ul>
-<li>Predicts outputs for given input data.</li>
-<li><strong>Args</strong>: <code>x</code> (list)</li>
-<li><strong>Returns</strong>: List of predicted values</li>
-</ul>
-<h4 id="metricsy_pred-y_test"><strong><code>metrics(y_pred, y_test)</code></strong></h4>
-<ul>
-<li>Calculates evaluation metrics like Mean Squared Error (MSE) and R² Score.</li>
-<li><strong>Args</strong>: <code>y_pred</code> (list), <code>y_test</code> (list)</li>
-<li><strong>Returns</strong>: Tuple containing MSE and R² Score.</li>
-</ul>
-<h3 id="example"><strong>Example</strong></h3>
+<p>The <code>LinearRegression</code> class provides methods to train a linear regression model, make predictions, and evaluate the model's performance. It can be imported directly from <code>agin</code> or from <code>agin.regression</code>.</p>
+<h3 id="usage"><strong>Usage</strong></h3>
+<p>The <code>LinearRegression</code> class can be imported directly from the <code>agin</code> package or from the <code>agin.regression</code> module:</p>
 <pre><code class="language-python">from agin import LinearRegression
+# or
+from agin.regression import LinearRegression
+</code></pre>
+<h4 id="example"><strong>Example</strong></h4>
+<pre><code class="language-python"># Option 1: Importing directly from agin
+from agin import LinearRegression
+
+# Option 2: Importing from agin.regression
+from agin.regression import LinearRegression
 
 # Training data
 x_train = [1, 2, 3, 4, 5]
@@ -539,10 +560,29 @@ y_pred = model.predict(x_test)
 print(&quot;Predictions:&quot;, y_pred)
 
 # Evaluate the model metrics
-mse,r2 = model.metrics(y_pred, y_test)
-print(&quot;Mean Squared Error: &quot;,mse)
-print(&quot;R2 Score: &quot;,r2)
+mse, r2 = model.metrics(y_pred, y_test)
+print(&quot;Mean Squared Error:&quot;, mse)
+print(&quot;R2 Score:&quot;, r2)
 </code></pre>
+<h3 id="methods"><strong>Methods</strong></h3>
+<h4 id="fitx-y"><strong><code>fit(x, y)</code></strong></h4>
+<ul>
+<li>Trains the model based on the input data.</li>
+<li><strong>Args</strong>: <code>x</code> (list), <code>y</code> (list)</li>
+<li><strong>Returns</strong>: None</li>
+</ul>
+<h4 id="predictx"><strong><code>predict(x)</code></strong></h4>
+<ul>
+<li>Predicts outputs for given input data.</li>
+<li><strong>Args</strong>: <code>x</code> (list)</li>
+<li><strong>Returns</strong>: List of predicted values</li>
+</ul>
+<h4 id="metricsy_pred-y_test"><strong><code>metrics(y_pred, y_test)</code></strong></h4>
+<ul>
+<li>Calculates evaluation metrics like Mean Squared Error (MSE) and R² Score.</li>
+<li><strong>Args</strong>: <code>y_pred</code> (list), <code>y_test</code> (list)</li>
+<li><strong>Returns</strong>: Tuple containing MSE and R² Score.</li>
+</ul>
 
 
 
