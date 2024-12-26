@@ -1,6 +1,7 @@
 site_name: Agin Docs
 theme:
   name: "material"
+  logo: assets/logo.svg
   features:
     - content.code.copy
   copyright: ""

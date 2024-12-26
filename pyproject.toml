@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "Agin"
+version = "0.0.1"
+authors = [
+    { name = "Agnik Bakshi", email="bakshi.agnik@gmail.com" },
+    { name = "Indranjana Chatterjee", email="indranjanachatterjee@gmail.com" }
+]
+description = "A one-stop machine learning solution"
+readme="README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License ::  GNU GENERAL PUBLIC LICENSE",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "numpy==2.2.1",
+    "pandas==2.2.3",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[project.urls]
+Homepage = "https://github.com/pypa/sampleproject"
+Issues = "https://github.com/pypa/sampleproject/issues"
