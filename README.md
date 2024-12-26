@@ -11,6 +11,12 @@
 
 ## **Installation**
 
+To install the package, use:
+```bash
+pip install AginPy
+```
+
+## **Setting up the Project Locally**
 ### **Step 1: Clone the Repository**
 Clone this repository to your local machine:
 
