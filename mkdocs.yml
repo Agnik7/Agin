@@ -2,24 +2,14 @@ site_name: Agin Docs
 theme:
   name: "material"
   logo: assets/logo.svg
+  favicon: assets/favicon.svg
   features:
     - content.code.copy
   copyright: ""
   palette:
-
-    # Palette toggle for light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default 
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      toggle:
-        icon: material/brightness-4
-        name: Switch to system preference
 nav:
   - Home: index.md
   - Utils: utils.md
