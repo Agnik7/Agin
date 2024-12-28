@@ -61,7 +61,7 @@ class LinearRegression:
         """
 
         # Calculate Mean Squared Error (MSE)
-        squared_errors = [(y_true - y_pred) ** 2 for y_true, y_pred in zip(y_test, y_pred)]
+        squared_errors = [(y_test - y_pred) ** 2 for y_true, y_pred in zip(y_test, y_pred)]
         mse = np.mean(squared_errors)
 
         # Calculate R2 Score (R2)
