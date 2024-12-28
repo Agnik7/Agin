@@ -2,9 +2,29 @@ import numpy as np
 
 class MultilinearRegression:
     def __init__(self):
+        """
+        Initializes the MultilinearRegression model with intercept and coefficients set to None.
+        
+        Attributes:
+            intercept (float): The intercept (bias term) of the model.
+            coefficients (numpy.ndarray): The coefficients (slopes) for each feature in the model.
+        """
         self.intercept=None
         self.coeffients=None
     def fit(self,x,y):
+        """
+        Trains the Multilinear Regression model using the Normal Equation to calculate coefficients.
+        
+        Args:
+            x (list or numpy.ndarray): A 2D array containing the training data for independent variables.
+            y (list or numpy.ndarray): A 1D array containing the true values for the dependent variable.
+        
+        Returns:
+            None: This method updates the model's intercept and coefficients based on the input data.
+        
+        The Normal Equation is applied to solve for the coefficients of the linear regression model:
+            coefficients = (X^T * X)^-1 * X^T * y
+        """
         x_train=np.array(x)
         y_train=np.array(y)
         # Adding the column of bias with X train
@@ -25,13 +45,17 @@ class MultilinearRegression:
         
     def predict(self,x):
         """
-        Predicts the dependent variable using the trained model.
-
+        Predicts the dependent variable using the trained Multilinear Regression model.
+        
         Args:
-            X: 2D list or array containing test data for independent variables.
-
+            x (list or numpy.ndarray): A 2D array containing test data for independent variables.
+        
         Returns:
-            List of predicted values.
+            numpy.ndarray: A 1D array of predicted values based on the model.
+        
+        This method uses the formula:
+            prediction = X * coefficients + intercept
+        where X is the input data and coefficients are the learned model parameters.
         """
         
         x_test=np.array(x)
@@ -40,14 +64,19 @@ class MultilinearRegression:
     
     def metrics(self,y_test,y_pred):
         """
-        Calculates the Mean Squared Error (MSE) and R^2 score.
-
+        Calculates the Mean Squared Error (MSE) and R^2 score to evaluate the model's performance.
+        
         Args:
-            y_pred: List of predicted values.
-            y_test: List of true values.
-
+            y_test (list or numpy.ndarray): A 1D array containing the true values for the dependent variable.
+            y_pred (list or numpy.ndarray): A 1D array containing the predicted values from the model.
+        
         Returns:
-            Tuple containing (mse, r2_score).
+            tuple: A tuple containing two float values:
+                - mse (float): The Mean Squared Error of the model.
+                - r2_score (float): The R-squared score of the model.
+        
+        The Mean Squared Error (MSE) is computed as the average squared difference between the true and predicted values.
+        The R-squared score is a measure of how well the model's predictions match the true values.
         """
         
         y_test = np.array(y_test)
@@ -62,13 +91,3 @@ class MultilinearRegression:
         r2_score = explained_variance / total_variance
 
         return mse, r2_score
-    
-
-
-
-        
-    
-    
-                 
-        
-     
