@@ -2,18 +2,27 @@ import numpy as np
 
 class LinearRegression:
     def __init__(self):
+        """
+        Initializes the LinearRegression model with intercept and coefficients set to None.
+        
+        Attributes:
+            slope(float): The slope in the model.
+            intercept (float): The intercept (bias term) of the model.
+        """
         self.slope = None
         self.intercept = None
 
     def fit(self, x, y):
         """ 
-        Function to train the Linear Regression model based on data given by user. Calculates and stores the slope and intercept
+        Function to train the Linear Regression model based on data given by the user. 
+        Calculates and stores the slope and intercept of the linear equation.
 
         Args: 
-            x,y: Lists containing the training X and Y datas
+            x (list or np.ndarray): List or array containing the training feature data (X values).
+            y (list or np.ndarray): List or array containing the target data (Y values).
         
         Returns:
-            None
+            None: This function updates the model's slope and intercept attributes.
         """
         # Convert to numpy arrays
         x_train = np.array(x)
@@ -37,31 +46,35 @@ class LinearRegression:
 
     def predict(self, x):
         """ 
-        Function to find the value(s) predicted by the model.
+        Function to find the value(s) predicted by the model based on the input feature data.
 
         Args: 
-            x: List containing test_x data
+            x (list or np.ndarray): List or array containing the test feature data (X values).
         
         Returns:
-            Float[]: Returns values predicted using Linear Regression.
+            np.ndarray: Returns predicted values based on the learned linear regression model.
         """
         x_test = np.array(x)
         return (self.slope * x_test) + self.intercept
 
     def metrics(self, y_pred, y_test):
-        # Manually calculate Mean Squared Error (MSE)
         """ 
-        Function to calculate the mean squared error
+        Function to calculate the performance metrics of the model, including Mean Squared Error (MSE)
+        and R-squared (R2) score.
 
         Args: 
-            y_pred,y_test: Lists containing predicted and expected output values respectively
+            y_pred (list or np.ndarray): List or array of predicted values.
+            y_test (list or np.ndarray): List or array of actual values (ground truth).
         
         Returns:
-            Float: Returns the mse of the model.
+            tuple: A tuple containing the following metrics:
+                - MSE (float): The Mean Squared Error of the model.
+                - R2 (float): The R-squared value of the model, indicating the proportion of variance explained.
         """
+        # Manually calculate Mean Squared Error (MSE)
 
         # Calculate Mean Squared Error (MSE)
-        squared_errors = [(y_true - y_pred) ** 2 for y_true, y_pred in zip(y_test, y_pred)]
+        squared_errors = [(y_test - y_pred) ** 2 for y_true, y_pred in zip(y_test, y_pred)]
         mse = np.mean(squared_errors)
 
         # Calculate R2 Score (R2)
