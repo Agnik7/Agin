@@ -12,23 +12,23 @@ class LinearRegression:
         self.slope = None
         self.intercept = None
 
-    def fit(self, x, y):
+    def fit(self, x_train, y_train):
         """ 
         Function to train the Linear Regression model based on data given by the user. 
         Calculates and stores the slope and intercept of the linear equation.
 
         Args: 
-            x (list or np.ndarray): List or array containing the training feature data (X values).
-            y (list or np.ndarray): List or array containing the target data (Y values).
+            x_train (list or np.ndarray): List or array containing the training feature data (X values).
+            y_train (list or np.ndarray): List or array containing the target data (Y values).
         
         Returns:
             None: This function updates the model's slope and intercept attributes.
         """
         # Convert to numpy arrays
-        x_train = np.array(x)
-        y_train = np.array(y)
+        x_train = np.array(x_train)
+        y_train = np.array(y_train)
 
-        # Calculate the mean of x and y
+        # Calculate the mean of x_train and y_train
         mean_value_x = np.mean(x_train)
         mean_value_y = np.mean(y_train)
 
@@ -44,17 +44,17 @@ class LinearRegression:
         self.slope = product / sum_of_squares_x
         self.intercept = mean_value_y - (self.slope * mean_value_x)
 
-    def predict(self, x):
+    def predict(self, x_test):
         """ 
         Function to find the value(s) predicted by the model based on the input feature data.
 
         Args: 
-            x (list or np.ndarray): List or array containing the test feature data (X values).
+            x_test (list or np.ndarray): List or array containing the test feature data (X values).
         
         Returns:
             np.ndarray: Returns predicted values based on the learned linear regression model.
         """
-        x_test = np.array(x)
+        x_test = np.array(x_test)
         return (self.slope * x_test) + self.intercept
 
     def metrics(self, y_pred, y_test):

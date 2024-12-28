@@ -11,13 +11,13 @@ class MultilinearRegression:
         """
         self.intercept=None
         self.coeffients=None
-    def fit(self,x,y):
+    def fit(self,x_train,y_train):
         """
         Trains the Multilinear Regression model using the Normal Equation to calculate coefficients.
         
         Args:
-            x (list or numpy.ndarray): A 2D array containing the training data for independent variables.
-            y (list or numpy.ndarray): A 1D array containing the true values for the dependent variable.
+            x_train (list or numpy.ndarray): A 2D array containing the training data for independent variables.
+            y_train (list or numpy.ndarray): A 1D array containing the true values for the dependent variable.
         
         Returns:
             None: This method updates the model's intercept and coefficients based on the input data.
@@ -25,8 +25,8 @@ class MultilinearRegression:
         The Normal Equation is applied to solve for the coefficients of the linear regression model:
             coefficients = (X^T * X)^-1 * X^T * y
         """
-        x_train=np.array(x)
-        y_train=np.array(y)
+        x_train=np.array(x_train)
+        y_train=np.array(y_train)
         # Adding the column of bias with X train
         x_train_with_bias=np.c_[np.ones(x_train.shape[0]),x_train]
         
@@ -43,12 +43,12 @@ class MultilinearRegression:
         self.intercept=coefficients[0]
         self.coeffients=coefficients[1:]
         
-    def predict(self,x):
+    def predict(self,x_test):
         """
         Predicts the dependent variable using the trained Multilinear Regression model.
         
         Args:
-            x (list or numpy.ndarray): A 2D array containing test data for independent variables.
+            x_test (list or numpy.ndarray): A 2D array containing test data for independent variables.
         
         Returns:
             numpy.ndarray: A 1D array of predicted values based on the model.
@@ -58,11 +58,11 @@ class MultilinearRegression:
         where X is the input data and coefficients are the learned model parameters.
         """
         
-        x_test=np.array(x)
+        x_test=np.array(x_test)
         
         return np.dot(x_test,self.coeffients) + self.intercept
     
-    def metrics(self,y_test,y_pred):
+    def metrics(self,y_pred, y_test):
         """
         Calculates the Mean Squared Error (MSE) and R^2 score to evaluate the model's performance.
         
