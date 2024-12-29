@@ -476,6 +476,105 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#k-nearest-neighbors-knn-classifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      K-Nearest Neighbors (KNN) Classifier
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="K-Nearest Neighbors (KNN) Classifier">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usage_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fitx_train-y_train_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      fit(x_train, y_train)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#predictx_test_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      predict(x_test)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metricsy_pred-y_test_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      metrics(y_pred, y_test)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_neighborsx" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_neighbors(x)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -748,6 +847,105 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#k-nearest-neighbors-knn-classifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      K-Nearest Neighbors (KNN) Classifier
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="K-Nearest Neighbors (KNN) Classifier">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usage_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fitx_train-y_train_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      fit(x_train, y_train)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#predictx_test_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      predict(x_test)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metricsy_pred-y_test_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      metrics(y_pred, y_test)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_neighborsx" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_neighbors(x)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -768,6 +966,7 @@
 <ul>
 <li><strong>Logistic Regression</strong></li>
 <li><strong>Naive Bayes Classifier</strong></li>
+<li><strong>K-Nearest Neighbors (KNN) Classifier</strong></li>
 </ul>
 <h2 id="logistic-regression"><strong>Logistic Regression</strong></h2>
 <p>The <code>LogisticRegression</code> class provides methods to train a logistic regression model using gradient descent with optional regularization, make predictions, and evaluate the model's performance. It can be imported directly from <code>agin</code> or from <code>agin.regression</code>.</p>
@@ -941,6 +1140,91 @@ print(&quot;F1 Score:&quot;, f1_score)
 </ul>
 </li>
 <li><strong>Returns</strong>: Tuple containing accuracy, precision, recall, and F1-score.</li>
+</ul>
+<h2 id="k-nearest-neighbors-knn-classifier"><strong>K-Nearest Neighbors (KNN) Classifier</strong></h2>
+<p>The <code>KNNClassifier</code> class implements the K-Nearest Neighbors algorithm for classification. It calculates the distances between test samples and training samples to identify the <code>k</code> nearest neighbors and predict labels using majority or weighted voting.</p>
+<h3 id="usage_2"><strong>Usage</strong></h3>
+<p>The <code>KNNClassifier</code> class can be imported directly from the <code>agin</code> package or from the <code>agin.classification</code> module:</p>
+<pre><code class="language-python">from agin import KNNClassifier
+# or
+from agin.classification import KNNClassifier
+</code></pre>
+<h4 id="example_2"><strong>Example</strong></h4>
+<pre><code class="language-python"># Option 1: Importing directly from agin
+from agin import KNNClassifier
+
+# Option 2: Importing from agin.classification
+from agin.classification import KNNClassifier
+
+# Training data
+x_train = [[1, 2], [2, 3], [3, 4], [4, 5]]
+y_train = [0, 1, 0, 1]
+
+# Initialize the model
+model = KNNClassifier(n_neighbors=3, weights='distance', metric='euclidean')
+
+# Fit the model
+model.fit(x_train, y_train)
+
+# Predict using the model
+x_test = [[5, 6], [6, 7]]
+y_pred = model.predict(x_test)
+
+print(&quot;Predictions:&quot;, y_pred)
+
+# Evaluate the model metrics
+y_test = [1, 0]
+accuracy, precision, recall, f1_score = model.metrics(y_pred, y_test)
+print(&quot;Accuracy:&quot;, accuracy)
+print(&quot;Precision:&quot;, precision)
+print(&quot;Recall:&quot;, recall)
+print(&quot;F1 Score:&quot;, f1_score)
+</code></pre>
+<h3 id="methods_2"><strong>Methods</strong></h3>
+<h4 id="fitx_train-y_train_1"><strong><code>fit(x_train, y_train)</code></strong></h4>
+<ul>
+<li>Stores the training data for use in distance calculations and predictions.</li>
+<li><strong>Args</strong>:<ul>
+<li><code>x_train</code> (numpy.ndarray or pandas.DataFrame): Training feature data.</li>
+<li><code>y_train</code> (numpy.ndarray or pandas.DataFrame): Target labels.</li>
+</ul>
+</li>
+<li><strong>Returns</strong>: The trained KNNClassifier model.</li>
+</ul>
+<h4 id="predictx_test_1"><strong><code>predict(x_test)</code></strong></h4>
+<ul>
+<li>Predicts class labels for the provided test data using the K-Nearest Neighbors algorithm.</li>
+<li><strong>Args</strong>:<ul>
+<li><code>x_test</code> (numpy.ndarray or pandas.DataFrame): Test feature data.</li>
+</ul>
+</li>
+<li><strong>Returns</strong>: numpy.ndarray of predicted class labels.</li>
+</ul>
+<h4 id="metricsy_pred-y_test_2"><strong><code>metrics(y_pred, y_test)</code></strong></h4>
+<ul>
+<li>Computes various evaluation metrics for classification.</li>
+<li><strong>Args</strong>:<ul>
+<li><code>y_pred</code> (numpy.ndarray): Predicted labels.</li>
+<li><code>y_test</code> (numpy.ndarray): True labels.</li>
+</ul>
+</li>
+<li><strong>Returns</strong>: Tuple containing accuracy, precision, recall, and F1-score.</li>
+</ul>
+<h4 id="get_neighborsx"><strong><code>get_neighbors(x)</code></strong></h4>
+<ul>
+<li>Identifies the indices and distances of the <code>k</code> nearest neighbors for a given sample.</li>
+<li><strong>Args</strong>:<ul>
+<li><code>x</code> (numpy.ndarray): Input sample to find neighbors for.</li>
+</ul>
+</li>
+<li><strong>Returns</strong>: Tuple containing indices and distances of the <code>k</code> nearest neighbors.</li>
+</ul>
+<h3 id="parameters_1"><strong>Parameters</strong></h3>
+<ul>
+<li><code>n_neighbors</code> (int): Number of neighbors to consider for classification. Default is 5.</li>
+<li><code>weights</code> (str): Weight function used in prediction ('uniform' or 'distance'). Default is 'uniform'.</li>
+<li><code>metric</code> (str): Distance metric to use ('euclidean' or 'manhattan'). Default is 'euclidean'.</li>
+<li><code>random_state</code> (int): Seed for random number generation to ensure reproducibility. Default is None.</li>
 </ul>
 
 
