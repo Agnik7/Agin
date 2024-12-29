@@ -3,14 +3,16 @@ from .utils.health import Health
 from .regression import (
     LinearRegression,
     MultilinearRegression,
-    PolynomialRegression
+    PolynomialRegression,
+    KNNRegressor
 )
 from .preprocessing import(
     MinMaxScaler
 )
 from .classification import (
     LogisticRegression,
-    NaiveBayesClassifier
+    NaiveBayesClassifier,
+    KNNClassifier
 )
 
 # End of import line
@@ -20,7 +22,9 @@ allowed_classes = [
     "MultilinearRegression",
     "PolynomialRegression",
     "MinMaxScaler",
-    "LogisticRegression"
-    "NaiveBayesClassifier"
+    "LogisticRegression",
+    "NaiveBayesClassifier",
+    "KNNClassifier",
+    "KNNRegressor"
     ] # List of all public facing classes
 __all__ = allowed_classes
