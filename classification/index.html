@@ -395,6 +395,87 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#naive-bayes-classifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      Naive Bayes Classifier
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Naive Bayes Classifier">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usage_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fitx_train-y_train" class="md-nav__link">
+    <span class="md-ellipsis">
+      fit(x_train, y_train)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#predictx_test" class="md-nav__link">
+    <span class="md-ellipsis">
+      predict(x_test)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metricsy_pred-y_test_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      metrics(y_pred, y_test)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -586,6 +667,87 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#naive-bayes-classifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      Naive Bayes Classifier
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Naive Bayes Classifier">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usage_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fitx_train-y_train" class="md-nav__link">
+    <span class="md-ellipsis">
+      fit(x_train, y_train)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#predictx_test" class="md-nav__link">
+    <span class="md-ellipsis">
+      predict(x_test)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metricsy_pred-y_test_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      metrics(y_pred, y_test)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -605,6 +767,7 @@
 <p>The <code>classification</code> module contains implementations of classification models. Currently, the package supports:</p>
 <ul>
 <li><strong>Logistic Regression</strong></li>
+<li><strong>Naive Bayes Classifier</strong></li>
 </ul>
 <h2 id="logistic-regression"><strong>Logistic Regression</strong></h2>
 <p>The <code>LogisticRegression</code> class provides methods to train a logistic regression model using gradient descent with optional regularization, make predictions, and evaluate the model's performance. It can be imported directly from <code>agin</code> or from <code>agin.regression</code>.</p>
@@ -649,7 +812,7 @@ print(&quot;F1 Score:&quot;, f1_score)
 <h4 id="fitx_train-y_train-epochsnone-learning_rate01-batch_size32"><strong><code>fit(x_train, y_train, epochs=None, learning_rate=0.1, batch_size=32)</code></strong></h4>
 <ul>
 <li>Trains the logistic regression model using gradient descent.</li>
-<li><strong>Args</strong>: <ul>
+<li><strong>Args</strong>:<ul>
 <li><code>x_train</code> (numpy.ndarray or pandas.DataFrame): Training feature data.</li>
 <li><code>y_train</code> (numpy.ndarray or pandas.DataFrame): Target labels.</li>
 <li><code>epochs</code> (int): Number of epochs for training. Default is the value of <code>max_iter</code>.</li>
@@ -668,7 +831,7 @@ print(&quot;F1 Score:&quot;, f1_score)
 <h4 id="predictx-threshold05"><strong><code>predict(x, threshold=0.5)</code></strong></h4>
 <ul>
 <li>Predicts class labels for the given feature data.</li>
-<li><strong>Args</strong>: <ul>
+<li><strong>Args</strong>:<ul>
 <li><code>x</code> (numpy.ndarray or pandas.DataFrame): Feature data.</li>
 <li><code>threshold</code> (float): Threshold for converting probabilities to binary class labels. Default is 0.5.</li>
 </ul>
@@ -678,7 +841,7 @@ print(&quot;F1 Score:&quot;, f1_score)
 <h4 id="metricsy_pred-y_test"><strong><code>metrics(y_pred, y_test)</code></strong></h4>
 <ul>
 <li>Computes various evaluation metrics for classification.</li>
-<li><strong>Args</strong>: <ul>
+<li><strong>Args</strong>:<ul>
 <li><code>y_pred</code> (numpy.ndarray): Predicted labels.</li>
 <li><code>y_test</code> (numpy.ndarray): True labels.</li>
 </ul>
@@ -709,6 +872,75 @@ print(&quot;F1 Score:&quot;, f1_score)
 <li>The model uses mini-batch gradient descent for optimization, with customizable batch sizes.</li>
 <li>Early stopping is implemented based on the tolerance parameter.</li>
 <li>Features are automatically scaled using MinMaxScaler during training and prediction.</li>
+</ul>
+<h2 id="naive-bayes-classifier"><strong>Naive Bayes Classifier</strong></h2>
+<p>The <code>NaiveBayesClassifier</code> class provides methods to train a Naive Bayes model, make predictions, and evaluate its performance. It can be imported directly from <code>agin</code> or from <code>agin.classification</code>.</p>
+<h3 id="usage_1"><strong>Usage</strong></h3>
+<p>The <code>NaiveBayesClassifier</code> class can be imported directly from the <code>agin</code> package or from the <code>agin.classification</code> module:</p>
+<pre><code class="language-python">from agin import NaiveBayesClassifier
+# or
+from agin.classification import NaiveBayesClassifier
+</code></pre>
+<h4 id="example_1"><strong>Example</strong></h4>
+<pre><code class="language-python"># Option 1: Importing directly from agin
+from agin import NaiveBayesClassifier
+
+# Option 2: Importing from agin.classification
+from agin.classification import NaiveBayesClassifier
+
+# Training data
+x_train = [[1, 2], [2, 2], [3, 1], [4, 1]]
+y_train = ['Yes', 'No', 'Yes', 'No']
+
+# Initialize the model
+model = NaiveBayesClassifier()
+
+# Fit the model
+model.fit(x_train, y_train)
+
+# Predict using the model
+x_test = [[2, 2], [3, 1]]
+y_pred = model.predict(x_test)
+
+print(&quot;Predictions:&quot;, y_pred)
+
+# Evaluate the model metrics
+y_test = ['No', 'Yes']
+accuracy, precision, recall, f1_score = model.metrics(y_pred, y_test)
+print(&quot;Accuracy:&quot;, accuracy)
+print(&quot;Precision:&quot;, precision)
+print(&quot;Recall:&quot;, recall)
+print(&quot;F1 Score:&quot;, f1_score)
+</code></pre>
+<h3 id="methods_1"><strong>Methods</strong></h3>
+<h4 id="fitx_train-y_train"><strong><code>fit(x_train, y_train)</code></strong></h4>
+<ul>
+<li>Trains the Naive Bayes model by calculating class probabilities and feature likelihoods.</li>
+<li><strong>Args</strong>:<ul>
+<li><code>x_train</code> (list or numpy.ndarray): A 2D array containing the training data for independent variables.</li>
+<li><code>y_train</code> (list or numpy.ndarray): A 1D array containing the true class labels for the dependent variable.</li>
+</ul>
+</li>
+<li><strong>Returns</strong>: None. Updates the model's class probabilities and feature likelihoods.</li>
+</ul>
+<h4 id="predictx_test"><strong><code>predict(x_test)</code></strong></h4>
+<ul>
+<li>Predicts the class label for each sample in the test data using the trained Naive Bayes model.</li>
+<li><strong>Args</strong>:<ul>
+<li><code>x_test</code> (list or numpy.ndarray): A 2D array containing test data for independent variables.</li>
+</ul>
+</li>
+<li><strong>Returns</strong>: numpy.ndarray of predicted class labels.</li>
+</ul>
+<h4 id="metricsy_pred-y_test_1"><strong><code>metrics(y_pred, y_test)</code></strong></h4>
+<ul>
+<li>Calculates the accuracy, precision, recall, and F1 score of the Naive Bayes classifier.</li>
+<li><strong>Args</strong>:<ul>
+<li><code>y_pred</code> (list or numpy.ndarray): A 1D array containing the predicted class labels from the model.</li>
+<li><code>y_test</code> (list or numpy.ndarray): A 1D array containing the true class labels for the dependent variable.</li>
+</ul>
+</li>
+<li><strong>Returns</strong>: Tuple containing accuracy, precision, recall, and F1-score.</li>
 </ul>
 
 
