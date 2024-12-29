@@ -12,13 +12,13 @@ class NaiveBayesClassifier:
         self.class_probs = None
         self.feature_probs = None
     
-    def fit(self, X, y):
+    def fit(self, x_train, y_train):
         """
         Trains the Naive Bayes model by calculating class probabilities and feature likelihoods.
         
         Args:
-            X (list or numpy.ndarray): A 2D array containing the training data for independent variables.
-            y (list or numpy.ndarray): A 1D array containing the true class labels for the dependent variable.
+            x_train (list or numpy.ndarray): A 2D array containing the training data for independent variables.
+            y_train (list or numpy.ndarray): A 1D array containing the true class labels for the dependent variable.
         
         Returns:
             None: This method updates the model's class probabilities and feature likelihoods.
@@ -27,8 +27,8 @@ class NaiveBayesClassifier:
             - class probabilities: P(class)
             - feature likelihoods: P(feature | class)
         """
-        X_train = np.array(X)
-        y_train = np.array(y)
+        x_train = np.array(x_train)
+        y_train = np.array(y_train)
         
         # Calculate class probabilities: P(class)
         class_labels = np.unique(y_train)
@@ -39,9 +39,9 @@ class NaiveBayesClassifier:
         # Calculate feature probabilities: P(feature | class)
         feature_probs = {}
         for label in class_labels:
-            X_class = X_train[y_train == label]
+            X_class = x_train[y_train == label]
             feature_probs[label] = {}
-            for feature_idx in range(X_train.shape[1]):
+            for feature_idx in range(x_train.shape[1]):
                 feature_values = X_class[:, feature_idx]
                 unique_vals, counts = np.unique(feature_values, return_counts=True)
                 feature_probs[label][feature_idx] = dict(zip(unique_vals, counts / len(feature_values)))
@@ -49,12 +49,12 @@ class NaiveBayesClassifier:
         self.class_probs = class_probs
         self.feature_probs = feature_probs
     
-    def predict(self, X):
+    def predict(self, x_train):
         """
         Predicts the class label for each sample in the test data using the trained Naive Bayes model.
         
         Args:
-            X (list or numpy.ndarray): A 2D array containing test data for independent variables.
+            x_train (list or numpy.ndarray): A 2D array containing test data for independent variables.
         
         Returns:
             numpy.ndarray: A 1D array of predicted class labels for each sample.
@@ -63,10 +63,10 @@ class NaiveBayesClassifier:
             P(class | X) ∝ P(class) * P(X | class)
         where X is the input data and P(X | class) is the product of individual feature likelihoods.
         """
-        X_test = np.array(X)
+        x_test = np.array(x_train)
         predictions = []
         
-        for sample in X_test:
+        for sample in x_test:
             class_scores = {}
             for label, class_prob in self.class_probs.items():
                 score = np.log(class_prob)  # Using log to avoid underflow
@@ -85,19 +85,32 @@ class NaiveBayesClassifier:
         
         return np.array(predictions)
     
-    def metrics(self, y_test, y_pred):
+    def metrics(self, y_pred, y_test):
         """
-        Calculates the accuracy of the Naive Bayes classifier.
+        Calculates the accuracy, precision, recall, and F1 score of the Naive Bayes classifier.
         
         Args:
             y_test (list or numpy.ndarray): A 1D array containing the true class labels for the dependent variable.
             y_pred (list or numpy.ndarray): A 1D array containing the predicted class labels from the model.
         
         Returns:
-            float: The accuracy of the model, which is the fraction of correct predictions.
+            tuple: A tuple containing the following metrics:
+                - accuracy (float): The fraction of correct predictions.
+                - precision (float): The ratio of true positives to the sum of true positives and false positives.
+                - recall (float): The ratio of true positives to the sum of true positives and false negatives.
+                - f1_score (float): The harmonic mean of precision and recall, giving a balanced score.
         
         Accuracy is computed as:
             accuracy = (number of correct predictions) / (total number of predictions)
+        
+        Precision is computed as:
+            precision = true_positives / (true_positives + false_positives)
+        
+        Recall is computed as:
+            recall = true_positives / (true_positives + false_negatives)
+        
+        F1 Score is computed as:
+            f1_score = 2 * (precision * recall) / (precision + recall)
         """
         y_test = np.array(y_test)
         y_pred = np.array(y_pred)
@@ -119,40 +132,3 @@ class NaiveBayesClassifier:
         f1_score = 2 * (precision * recall) / (precision + recall) if (precision + recall) != 0 else 0
         
         return accuracy, precision, recall, f1_score
-
-
-    
-if __name__ == "__main__":
-    # Sample dataset
-    X_train = [
-        ["Sunny", "Hot", "High", "Weak"],
-        ["Sunny", "Hot", "High", "Strong"],
-        ["Overcast", "Hot", "High", "Weak"],
-        ["Rainy", "Mild", "High", "Weak"],
-        ["Rainy", "Cool", "Normal", "Weak"],
-        ["Rainy", "Cool", "Normal", "Strong"],
-        ["Overcast", "Cool", "Normal", "Strong"],
-        ["Sunny", "Mild", "High", "Weak"],
-        ["Sunny", "Cool", "Normal", "Weak"],
-        ["Rainy", "Mild", "Normal", "Weak"],
-        ["Sunny", "Mild", "Normal", "Strong"],
-        ["Overcast", "Mild", "High", "Strong"],
-        ["Overcast", "Hot", "Normal", "Weak"],
-        ["Rainy", "Mild", "High", "Strong"]
-    ]
-    y_train = ["No", "No", "Yes", "Yes", "Yes", "No", "Yes", "No", "Yes", "Yes", "Yes", "Yes", "Yes", "No"]
-
-    X_test = [["Sunny", "Cool", "High", "Strong"]]
-    
-    # Train the Naive Bayes Classifier
-    nb_classifier = NaiveBayesClassifier()
-    nb_classifier.fit(X_train, y_train)
-    
-    # Make predictions
-    predictions = nb_classifier.predict(X_test)
-    
-    # Print the results
-    print("Predicted class for the test samples:", predictions)
-
-        
-        

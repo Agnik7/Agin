@@ -3,6 +3,7 @@
 The `classification` module contains implementations of classification models. Currently, the package supports:
 
 - **Logistic Regression**
+- **Naive Bayes Classifier**
 
 ## **Logistic Regression**
 The `LogisticRegression` class provides methods to train a logistic regression model using gradient descent with optional regularization, make predictions, and evaluate the model's performance. It can be imported directly from `agin` or from `agin.regression`.
@@ -53,7 +54,7 @@ print("F1 Score:", f1_score)
 ### **Methods**
 #### **`fit(x_train, y_train, epochs=None, learning_rate=0.1, batch_size=32)`**
    - Trains the logistic regression model using gradient descent.
-   - **Args**: 
+   - **Args**:
      - `x_train` (numpy.ndarray or pandas.DataFrame): Training feature data.
      - `y_train` (numpy.ndarray or pandas.DataFrame): Target labels.
      - `epochs` (int): Number of epochs for training. Default is the value of `max_iter`.
@@ -68,14 +69,14 @@ print("F1 Score:", f1_score)
 
 #### **`predict(x, threshold=0.5)`**
    - Predicts class labels for the given feature data.
-   - **Args**: 
+   - **Args**:
      - `x` (numpy.ndarray or pandas.DataFrame): Feature data.
      - `threshold` (float): Threshold for converting probabilities to binary class labels. Default is 0.5.
    - **Returns**: numpy.ndarray of predicted class labels.
 
 #### **`metrics(y_pred, y_test)`**
    - Computes various evaluation metrics for classification.
-   - **Args**: 
+   - **Args**:
      - `y_pred` (numpy.ndarray): Predicted labels.
      - `y_test` (numpy.ndarray): True labels.
    - **Returns**: Tuple containing accuracy, precision, recall, and F1-score.
@@ -101,3 +102,71 @@ print("F1 Score:", f1_score)
 - The model uses mini-batch gradient descent for optimization, with customizable batch sizes.
 - Early stopping is implemented based on the tolerance parameter.
 - Features are automatically scaled using MinMaxScaler during training and prediction.
+
+## **Naive Bayes Classifier**
+The `NaiveBayesClassifier` class provides methods to train a Naive Bayes model, make predictions, and evaluate its performance. It can be imported directly from `agin` or from `agin.classification`.
+
+### **Usage**
+The `NaiveBayesClassifier` class can be imported directly from the `agin` package or from the `agin.classification` module:
+
+```python
+from agin import NaiveBayesClassifier
+# or
+from agin.classification import NaiveBayesClassifier
+```
+
+#### **Example**
+
+```python
+# Option 1: Importing directly from agin
+from agin import NaiveBayesClassifier
+
+# Option 2: Importing from agin.classification
+from agin.classification import NaiveBayesClassifier
+
+# Training data
+x_train = [[1, 2], [2, 2], [3, 1], [4, 1]]
+y_train = ['Yes', 'No', 'Yes', 'No']
+
+# Initialize the model
+model = NaiveBayesClassifier()
+
+# Fit the model
+model.fit(x_train, y_train)
+
+# Predict using the model
+x_test = [[2, 2], [3, 1]]
+y_pred = model.predict(x_test)
+
+print("Predictions:", y_pred)
+
+# Evaluate the model metrics
+y_test = ['No', 'Yes']
+accuracy, precision, recall, f1_score = model.metrics(y_pred, y_test)
+print("Accuracy:", accuracy)
+print("Precision:", precision)
+print("Recall:", recall)
+print("F1 Score:", f1_score)
+```
+
+### **Methods**
+#### **`fit(x_train, y_train)`**
+   - Trains the Naive Bayes model by calculating class probabilities and feature likelihoods.
+   - **Args**:
+     - `x_train` (list or numpy.ndarray): A 2D array containing the training data for independent variables.
+     - `y_train` (list or numpy.ndarray): A 1D array containing the true class labels for the dependent variable.
+   - **Returns**: None. Updates the model's class probabilities and feature likelihoods.
+
+#### **`predict(x_test)`**
+   - Predicts the class label for each sample in the test data using the trained Naive Bayes model.
+   - **Args**:
+     - `x_test` (list or numpy.ndarray): A 2D array containing test data for independent variables.
+   - **Returns**: numpy.ndarray of predicted class labels.
+
+#### **`metrics(y_pred, y_test)`**
+   - Calculates the accuracy, precision, recall, and F1 score of the Naive Bayes classifier.
+   - **Args**:
+     - `y_pred` (list or numpy.ndarray): A 1D array containing the predicted class labels from the model.
+     - `y_test` (list or numpy.ndarray): A 1D array containing the true class labels for the dependent variable.
+   - **Returns**: Tuple containing accuracy, precision, recall, and F1-score.
+
