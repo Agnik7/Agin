@@ -19,6 +19,7 @@ pip install AginPy
 
 For detailed information, see the following sections:
 
+- [Classification](classification.md)
 - [Regression](regression.md)
 - [Utils](utils.md)
 

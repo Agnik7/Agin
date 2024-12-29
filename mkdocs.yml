@@ -12,8 +12,9 @@ theme:
       scheme: slate
 nav:
   - Home: index.md
-  - Utils: utils.md
+  - Classification: classification.md
   - Regression: regression.md
+  - Utils: utils.md
 extra:
   generator: false
 extra_css:
