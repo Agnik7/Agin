@@ -4,6 +4,7 @@ The `regression` module contains implementations of regression models. Currently
 
 - **Linear Regression**
 - **Multilinear Regression**
+- **Polynomial Regression**
 
 ## **Linear Regression**
 The `LinearRegression` class provides methods to train a linear regression model, make predictions, and evaluate the model's performance. It can be imported directly from `agin` or from `agin.regression`.
@@ -114,6 +115,67 @@ print("R2 Score:", r2)
 ### **Methods**
 #### **`fit(x_train, y_train)`**
    - Trains the model using the Normal Equation.
+   - **Args**: `x_train` (list or numpy.ndarray), `y_train` (list or numpy.ndarray)
+   - **Returns**: None
+
+#### **`predict(x_test)`**
+   - Predicts outputs for given input data.
+   - **Args**: `x_test` (list or numpy.ndarray)
+   - **Returns**: List of predicted values
+
+#### **`metrics(y_pred, y_test)`**
+   - Calculates evaluation metrics like Mean Squared Error (MSE) and R² Score.
+   - **Args**: `y_pred` (list or numpy.ndarray), `y_test` (list or numpy.ndarray)
+   - **Returns**: Tuple containing MSE and R² Score.
+
+## **Polynomial Regression**
+The `PolynomialRegression` class provides methods to train a polynomial regression model of any degree, make predictions, and evaluate the model's performance. It can be imported directly from `agin` or from `agin.regression`.
+
+### **Usage**
+The `PolynomialRegression` class can be imported directly from the `agin` package or from the `agin.regression` module:
+
+```python
+from agin import PolynomialRegression
+# or
+from agin.regression import PolynomialRegression
+```
+
+#### **Example**
+
+```python
+# Option 1: Importing directly from agin
+from agin import PolynomialRegression
+
+# Option 2: Importing from agin.regression
+from agin.regression import PolynomialRegression
+
+# Training data
+x_train = [1, 2, 3, 4, 5]
+y_train = [2, 5, 10, 17, 26]
+
+# Initialize the model
+model = PolynomialRegression(degree=2)
+
+# Fit the model
+model.fit(x_train, y_train)
+
+# Predict using the model
+x_test = [6, 7, 8]
+
+y_pred = model.predict(x_test)
+
+print("Predictions:", y_pred)
+
+# Evaluate the model metrics
+y_test = [37, 50, 65]
+mse, r2 = model.metrics(y_pred, y_test)
+print("Mean Squared Error:", mse)
+print("R2 Score:", r2)
+```
+
+### **Methods**
+#### **`fit(x_train, y_train)`**
+   - Trains the model using the Normal Equation for polynomial features.
    - **Args**: `x_train` (list or numpy.ndarray), `y_train` (list or numpy.ndarray)
    - **Returns**: None
 
