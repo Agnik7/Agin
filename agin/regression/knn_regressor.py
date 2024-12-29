@@ -197,11 +197,9 @@ class KNNRegressor:
                 - Should be of shape (n_samples,).
 
         Returns:
-            tuple: (mse, rmse, mae, r2)
+            tuple: (mse r2)
                 - mse: Mean Squared Error.
-                - rmse: Root Mean Squared Error.
-                - mae: Mean Absolute Error.
-                - r2: Coefficient of determination.
+                - r2_score: The R-squared value of the model, indicating the proportion of variance explained.
         """
         # Ensure inputs are numpy arrays
         y_test = np.array(y_test).ravel()
@@ -210,15 +208,9 @@ class KNNRegressor:
         # Calculate mean squared error
         mse = np.mean((y_test - y_pred) ** 2)
 
-        # Calculate root mean squared error
-        rmse = np.sqrt(mse)
-
-        # Calculate mean absolute error
-        mae = np.mean(np.abs(y_test - y_pred))
-
         # Calculate R^2 score
         ss_res = np.sum((y_test - y_pred) ** 2)
         ss_tot = np.sum((y_test - np.mean(y_test)) ** 2)
-        r2 = 1 - (ss_res / (ss_tot + 1e-8))
+        r2_score = 1 - (ss_res / (ss_tot + 1e-8))
 
-        return mse, rmse, mae, r2
+        return mse, r2_score

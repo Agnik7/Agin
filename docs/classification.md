@@ -4,6 +4,7 @@ The `classification` module contains implementations of classification models. C
 
 - **Logistic Regression**
 - **Naive Bayes Classifier**
+- **K-Nearest Neighbors (KNN) Classifier**
 
 ## **Logistic Regression**
 The `LogisticRegression` class provides methods to train a logistic regression model using gradient descent with optional regularization, make predictions, and evaluate the model's performance. It can be imported directly from `agin` or from `agin.regression`.
@@ -170,3 +171,81 @@ print("F1 Score:", f1_score)
      - `y_test` (list or numpy.ndarray): A 1D array containing the true class labels for the dependent variable.
    - **Returns**: Tuple containing accuracy, precision, recall, and F1-score.
 
+## **K-Nearest Neighbors (KNN) Classifier**
+The `KNNClassifier` class implements the K-Nearest Neighbors algorithm for classification. It calculates the distances between test samples and training samples to identify the `k` nearest neighbors and predict labels using majority or weighted voting.
+
+### **Usage**
+The `KNNClassifier` class can be imported directly from the `agin` package or from the `agin.classification` module:
+
+```python
+from agin import KNNClassifier
+# or
+from agin.classification import KNNClassifier
+```
+
+#### **Example**
+
+```python
+# Option 1: Importing directly from agin
+from agin import KNNClassifier
+
+# Option 2: Importing from agin.classification
+from agin.classification import KNNClassifier
+
+# Training data
+x_train = [[1, 2], [2, 3], [3, 4], [4, 5]]
+y_train = [0, 1, 0, 1]
+
+# Initialize the model
+model = KNNClassifier(n_neighbors=3, weights='distance', metric='euclidean')
+
+# Fit the model
+model.fit(x_train, y_train)
+
+# Predict using the model
+x_test = [[5, 6], [6, 7]]
+y_pred = model.predict(x_test)
+
+print("Predictions:", y_pred)
+
+# Evaluate the model metrics
+y_test = [1, 0]
+accuracy, precision, recall, f1_score = model.metrics(y_pred, y_test)
+print("Accuracy:", accuracy)
+print("Precision:", precision)
+print("Recall:", recall)
+print("F1 Score:", f1_score)
+```
+
+### **Methods**
+#### **`fit(x_train, y_train)`**
+   - Stores the training data for use in distance calculations and predictions.
+   - **Args**:
+     - `x_train` (numpy.ndarray or pandas.DataFrame): Training feature data.
+     - `y_train` (numpy.ndarray or pandas.DataFrame): Target labels.
+   - **Returns**: The trained KNNClassifier model.
+
+#### **`predict(x_test)`**
+   - Predicts class labels for the provided test data using the K-Nearest Neighbors algorithm.
+   - **Args**:
+     - `x_test` (numpy.ndarray or pandas.DataFrame): Test feature data.
+   - **Returns**: numpy.ndarray of predicted class labels.
+
+#### **`metrics(y_pred, y_test)`**
+   - Computes various evaluation metrics for classification.
+   - **Args**:
+     - `y_pred` (numpy.ndarray): Predicted labels.
+     - `y_test` (numpy.ndarray): True labels.
+   - **Returns**: Tuple containing accuracy, precision, recall, and F1-score.
+
+#### **`get_neighbors(x)`**
+   - Identifies the indices and distances of the `k` nearest neighbors for a given sample.
+   - **Args**:
+     - `x` (numpy.ndarray): Input sample to find neighbors for.
+   - **Returns**: Tuple containing indices and distances of the `k` nearest neighbors.
+
+### **Parameters**
+- `n_neighbors` (int): Number of neighbors to consider for classification. Default is 5.
+- `weights` (str): Weight function used in prediction ('uniform' or 'distance'). Default is 'uniform'.
+- `metric` (str): Distance metric to use ('euclidean' or 'manhattan'). Default is 'euclidean'.
+- `random_state` (int): Seed for random number generation to ensure reproducibility. Default is None.
