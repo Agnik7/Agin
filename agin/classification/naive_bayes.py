@@ -103,7 +103,22 @@ class NaiveBayesClassifier:
         y_pred = np.array(y_pred)
         
         accuracy = np.sum(y_test == y_pred) / len(y_test)
-        return accuracy
+        # Precision, Recall, F1 Score (assuming positive class is 'Yes' and negative class is 'No')
+        true_positives = np.sum((y_test == 'Yes') & (y_pred == 'Yes'))
+        false_positives = np.sum((y_test == 'No') & (y_pred == 'Yes'))
+        false_negatives = np.sum((y_test == 'Yes') & (y_pred == 'No'))
+        true_negatives = np.sum((y_test == 'No') & (y_pred == 'No'))
+        
+        # Precision
+        precision = true_positives / (true_positives + false_positives) if (true_positives + false_positives) != 0 else 0
+        
+        # Recall
+        recall = true_positives / (true_positives + false_negatives) if (true_positives + false_negatives) != 0 else 0
+        
+        # F1 Score
+        f1_score = 2 * (precision * recall) / (precision + recall) if (precision + recall) != 0 else 0
+        
+        return accuracy, precision, recall, f1_score
 
 
     
