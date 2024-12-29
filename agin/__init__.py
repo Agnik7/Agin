@@ -10,7 +10,8 @@ from .preprocessing import(
 )
 from .classification import (
     LogisticRegression,
-    NaiveBayesClassifier
+    NaiveBayesClassifier,
+    KNNClassifier
 )
 
 # End of import line
@@ -20,7 +21,8 @@ allowed_classes = [
     "MultilinearRegression",
     "PolynomialRegression",
     "MinMaxScaler",
-    "LogisticRegression"
-    "NaiveBayesClassifier"
+    "LogisticRegression",
+    "NaiveBayesClassifier",
+    "KNNClassifier"
     ] # List of all public facing classes
 __all__ = allowed_classes
