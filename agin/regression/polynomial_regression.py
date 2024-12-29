@@ -17,20 +17,20 @@ class PolynomialRegression:
         self.coefficients=None
         self.intercept=None
         
-    def fit(self,x,y):
+    def fit(self,x_train,y_train):
         """
         Trains the Polynomial Regression model using the Normal Equation.
         
         Args:
-            x (list or numpy.ndarray): A 1D array containing the independent variable.
-            y (list or numpy.ndarray): A 1D array containing the dependent variable.
+            x_train (list or numpy.ndarray): A 1D array containing the independent variable.
+            y_train (list or numpy.ndarray): A 1D array containing the dependent variable.
         
         Returns:
             None: This method updates the model's intercept and coefficients.
         """
-        # Convert x and y to numpy arrays
-        x_train=np.array(x)
-        y_train=np.array(y)
+        # Convert x_train and y_train to numpy arrays
+        x_train=np.array(x_train)
+        y_train=np.array(y_train)
         
         x_poly =np.column_stack([x_train**i for i in range(self.degree+1)])
         
@@ -47,19 +47,19 @@ class PolynomialRegression:
         self.intercept=coefficients[0]
         self.coefficients=coefficients[1:]
    
-    def predict(self,x):
+    def predict(self,x_test):
         
         """
         Predicts the dependent variable using the trained Polynomial Regression model.
         
         Args:
-            x (list or numpy.ndarray): A 1D array of values for the independent variable.
+            x_test (list or numpy.ndarray): A 1D array of values for the independent variable.
         
         Returns:
             numpy.ndarray: A 1D array of predicted values.
         """
         
-        x_test=np.array(x)
+        x_test=np.array(x_test)
         
         x_poly=np.column_stack([x_test**i for i in range(1,self.degree+1)])
         
@@ -91,26 +91,3 @@ class PolynomialRegression:
 
         return mse, r2_score
     
-if __name__ == "__main__":
-    # Sample Data: (e.g., for a quadratic relationship y = x^2 + 2x + 1)
-    x_train = [1, 2, 3, 4, 5]
-    y_train = [4, 11, 20, 31, 44]  # y = x^2 + 2x + 1
-
-    # Create PolynomialRegression instance with degree 2 (quadratic)
-    model = PolynomialRegression(degree=2)
-
-    # Train the model
-    model.fit(x_train, y_train)
-
-    # Predict using the trained model
-    x_test = [6, 7, 8]
-    y_pred = model.predict(x_test)
-
-    # Print predictions
-    print("Predictions for x =", x_test, "are:", y_pred)
-
-    # Evaluate the model
-    mse, r2 = model.metrics(y_train, model.predict(x_train))
-    print(f"Mean Squared Error: {mse}")
-    print(f"R^2 Score: {r2}")    
-               
