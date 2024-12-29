@@ -8,7 +8,9 @@ from .regression import (
 from .preprocessing import(
     MinMaxScaler
 )
-from .classification import LogisticRegression
+from .classification import (
+    LogisticRegression
+)
 # End of import line
 allowed_classes = [
     "Health", 
