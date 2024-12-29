@@ -9,8 +9,10 @@ from .preprocessing import(
     MinMaxScaler
 )
 from .classification import (
-    LogisticRegression
+    LogisticRegression,
+    NaiveBayesClassifier
 )
+
 # End of import line
 allowed_classes = [
     "Health", 
@@ -19,5 +21,6 @@ allowed_classes = [
     "PolynomialRegression",
     "MinMaxScaler",
     "LogisticRegression"
+    "NaiveBayesClassifier"
     ] # List of all public facing classes
 __all__ = allowed_classes
