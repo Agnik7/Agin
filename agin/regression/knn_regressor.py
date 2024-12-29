@@ -102,10 +102,10 @@ class KNNRegressor:
         """
         if self.metric == 'euclidean':
             # Compute Euclidean distance
-            return np.sqrt(np.sum((self.X_train - x) ** 2, axis=1))
+            return np.sqrt(np.sum((self.x_train - x) ** 2, axis=1))
         elif self.metric == 'manhattan':
             # Compute Manhattan distance
-            return np.sum(np.abs(self.X_train - x), axis=1)
+            return np.sum(np.abs(self.x_train - x), axis=1)
         else:
             raise ValueError(f"Unknown metric: {self.metric}")
 
