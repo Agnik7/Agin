@@ -1,4 +1,7 @@
-
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/14081022-1685-4e3e-a37e-ba05e21abb03" alt="AGIN LOGO" height="500" width="500"/>
+</div>
+<br/>
 <div align="center">
   <img src="https://img.shields.io/pypi/dm/AginPy" alt="PyPI - Downloads"/>
   <img src="https://img.shields.io/github/issues/Agnik7/Agin" alt="GitHub Issues"/>
