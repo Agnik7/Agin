@@ -61,12 +61,18 @@ class RidgeRegression:
         return X @ np.concatenate(([self.intercept], self.slope))
 
     def metrics(self, y_pred, y_test):
-        """ 
-        Calculates performance metrics: Mean Squared Error (MSE) and R-squared (R2) score.
+        """
+        Function to calculate the performance metrics of the model, including Mean Squared Error (MSE)
+        and R-squared (R2) score.
 
-        Args: 
-            y_pred (np.ndarray): Predicted values.
-            y_test (np.ndarray): Actual values.
+        Args:
+            y_pred (list or np.ndarray): List or array of predicted values.
+            y_test (list or np.ndarray): List or array of actual values (ground truth).
+
+        Returns:
+            tuple: A tuple containing the following metrics:
+                - MSE (float): The Mean Squared Error of the model.
+                - R2_SCORE (float): The R-squared value of the model, indicating the proportion of variance explained.
         """
         y_test = np.array(y_test)
 
@@ -77,36 +83,7 @@ class RidgeRegression:
         # Calculate R2 Score
         total_variance = np.sum((y_test - np.mean(y_test)) ** 2)
         explained_variance = np.sum((y_pred - np.mean(y_test)) ** 2)
-        r2 = explained_variance / total_variance
+        r2_score = explained_variance / total_variance
 
-        return mse, r2
+        return mse, r2_score
 
-if __name__ == "__main__":
-    # Sample data
-    x_train = [1, 2, 3, 4, 5]
-    y_train = [2.2, 2.8, 3.6, 4.5, 5.1]
-
-    x_test = [6, 7, 8]
-    y_test = [5.9, 6.7, 7.6]
-
-    # Regularization strength
-    alpha = 0.1
-
-    # Create and train the model
-    model = RidgeRegression(alpha)
-    model.fit(x_train, y_train)
-
-    # Predict and evaluate
-    y_pred = model.predict(x_test)
-    mse, r2 = model.metrics(y_pred, y_test)
-
-    # Display results
-    print("Trained Ridge Regression Model:")
-    print(f"Slope: {model.slope}")
-    print(f"Intercept: {model.intercept}\n")
-
-    print("Test Results:")
-    print(f"Predicted Values: {y_pred}")
-    print(f"Actual Values: {y_test}")
-    print(f"Mean Squared Error (MSE): {mse:.4f}")
-    print(f"R-squared (R2): {r2:.4f}")

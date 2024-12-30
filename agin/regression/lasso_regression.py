@@ -98,7 +98,7 @@ class LassoRegression:
         Returns:
             tuple: A tuple containing the following metrics:
                 - MSE (float): The Mean Squared Error of the model.
-                - R2 (float): The R-squared value of the model, indicating the proportion of variance explained.
+                - R2_SCORE (float): The R-squared value of the model, indicating the proportion of variance explained.
         """
         # Calculate Mean Squared Error (MSE)
         squared_errors = (y_test - y_pred) ** 2
@@ -107,40 +107,6 @@ class LassoRegression:
         # Calculate R2 Score (R2)
         total_variance = np.sum((y_test - np.mean(y_test)) ** 2)
         explained_variance = np.sum((y_pred - np.mean(y_test)) ** 2)
-        r2 = explained_variance / total_variance
+        r2_score = explained_variance / total_variance
 
-        return mse, r2
-
-if __name__ == "__main__":
-    # Sample data for testing
-    x_train = [1, 2, 3, 4, 5]
-    y_train = [2.2, 2.8, 3.6, 4.5, 5.1]
-
-    x_test = [6, 7, 8]
-    y_test = [5.9, 6.7, 7.6]
-
-    # Lasso Regression parameters
-    alpha = 0.1  # Regularization strength
-
-    # Create an instance of the Lasso Regression model
-    model = LassoRegression(alpha)
-
-    # Train the model with the training data
-    model.fit(x_train, y_train)
-
-    # Predict using the test data
-    y_pred = model.predict(x_test)
-
-    # Calculate metrics
-    mse, r2 = model.metrics(y_pred, y_test)
-
-    # Display results
-    print("Trained Lasso Regression Model:")
-    print(f"Slope: {model.slope}")
-    print(f"Intercept: {model.intercept}\n")
-
-    print("Test Results:")
-    print(f"Predicted Values: {y_pred}")
-    print(f"Actual Values: {y_test}")
-    print(f"Mean Squared Error (MSE): {mse:.4f}")
-    print(f"R-squared (R2): {r2:.4f}")
+        return mse, r2_score
