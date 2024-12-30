@@ -3,11 +3,13 @@ from .multilinear_regression import MultilinearRegression
 from .polynomial_regression import PolynomialRegression
 from .knn_regressor import KNNRegressor
 from .decision_tree_regressor import DecisionTreeRegressor
+from .random_forest_regressor import RandomForestRegressor
 allowed_classes = [
     "LinearRegression", 
     "MultilinearRegression",
     "PolynomialRegression",
     "KNNRegressor",
-    "DecisionTreeRegressor"
+    "DecisionTreeRegressor",
+    "RandomForestRegressor"
     ]
 __all__ = allowed_classes

@@ -5,7 +5,8 @@ from .regression import (
     MultilinearRegression,
     PolynomialRegression,
     KNNRegressor,
-    DecisionTreeRegressor
+    DecisionTreeRegressor,
+    RandomForestRegressor
 )
 from .preprocessing import(
     MinMaxScaler
@@ -35,6 +36,7 @@ allowed_classes = [
     "NonLinearSVM",
     "DecisionTreeClassifier",
     "DecisionTreeRegressor",
-    "RandomForestClassifier"
+    "RandomForestClassifier",
+    "RandomForestRegressor"
     ] # List of all public facing classes
 __all__ = allowed_classes
