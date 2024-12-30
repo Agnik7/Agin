@@ -304,7 +304,73 @@ print("F1 Score:", f1_score)
    - **Returns**: numpy.ndarray of predicted class labels.
 
 #### **`metrics(y_pred, y_test)`**
-   - Computes various evaluation metrics for classification.
+   - Calculates the accuracy, precision, recall, and F1 score of the KNN classifier.
+   - **Args**:
+     - `y_pred` (list or numpy.ndarray): A 1D array containing the predicted class labels from the model.
+     - `y_test` (list or numpy.ndarray): A 1D array containing the true class labels for the dependent variable.
+   - **Returns**: Tuple containing accuracy, precision, recall, and F1-score.
+
+## **Linear SVM Classifier**
+The `LinearSVMClassifier` class implements the Linear Support Vector Machine (SVM) algorithm for classification tasks. It separates classes by finding the hyperplane that maximizes the margin between them.
+
+### **Usage**
+The `LinearSVMClassifier` class can be imported directly from `agin` or from `agin.classification`.
+
+```python
+from agin import LinearSVMClassifier
+# or
+from agin.classification import LinearSVMClassifier
+```
+
+#### **Example**
+
+```python
+# Option 1: Importing directly from agin
+from agin import LinearSVMClassifier
+
+# Option 2: Importing from agin.classification
+from agin.classification import LinearSVMClassifier
+
+# Training data
+x_train = [[1, 2], [2, 3], [3, 4], [4, 5]]
+y_train = [0, 1, 0, 1]
+
+# Initialize the model
+model = LinearSVMClassifier(C=1.0, max_iter=100)
+
+# Fit the model
+model.fit(x_train, y_train)
+
+# Predict using the model
+x_test = [[5, 6], [6, 7]]
+y_pred = model.predict(x_test)
+
+print("Predictions:", y_pred)
+
+# Evaluate the model metrics
+y_test = [1, 0]
+accuracy, precision, recall, f1_score = model.metrics(y_pred, y_test)
+print("Accuracy:", accuracy)
+print("Precision:", precision)
+print("Recall:", recall)
+print("F1 Score:", f1_score)
+```
+
+### **Methods**
+#### **`fit(x_train, y_train)`**
+   - Trains the SVM model by finding the optimal hyperplane.
+   - **Args**:
+     - `x_train` (numpy.ndarray or pandas.DataFrame): Training feature data.
+     - `y_train` (numpy.ndarray or pandas.DataFrame): Target labels.
+   - **Returns**: The trained LinearSVMClassifier model.
+
+#### **`predict(x)`**
+   - Predicts class labels for the given feature data.
+   - **Args**: `x` (numpy.ndarray or pandas.DataFrame): Feature data.
+   - **Returns**: numpy.ndarray of predicted class labels.
+
+#### **`metrics(y_pred, y_test)`**
+   - Computes accuracy, precision, recall, and F1-score for classification.
    - **Args**:
      - `y_pred` (numpy.ndarray): Predicted labels.
      - `y_test` (numpy.ndarray): True labels.
