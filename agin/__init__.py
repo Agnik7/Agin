@@ -33,6 +33,7 @@ allowed_classes = [
     "LinearSVMClassifier",
     "NonLinearSVM",
     "DecisionTreeClassifier",
-    "DecisionTreeRegressor"
+    "DecisionTreeRegressor",
+    
     ] # List of all public facing classes
 __all__ = allowed_classes
