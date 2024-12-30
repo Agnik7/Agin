@@ -15,8 +15,9 @@ from .classification import (
     NaiveBayesClassifier,
     KNNClassifier,
     LinearSVMClassifier,
-    NonLinearSVM,    
-    DecisionTreeClassifier
+    NonLinearSVM,
+    DecisionTreeClassifier,
+    RandomForestClassifier
 )
 
 # End of import line
@@ -34,6 +35,6 @@ allowed_classes = [
     "NonLinearSVM",
     "DecisionTreeClassifier",
     "DecisionTreeRegressor",
-    
+    "RandomForestClassifier"
     ] # List of all public facing classes
 __all__ = allowed_classes
