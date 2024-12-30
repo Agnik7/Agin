@@ -12,7 +12,9 @@ from .preprocessing import(
 from .classification import (
     LogisticRegression,
     NaiveBayesClassifier,
-    KNNClassifier
+    KNNClassifier,
+    LinearSVMClassifier
+    
 )
 
 # End of import line
@@ -25,6 +27,8 @@ allowed_classes = [
     "LogisticRegression",
     "NaiveBayesClassifier",
     "KNNClassifier",
-    "KNNRegressor"
+    "KNNRegressor",
+    "LinearSVMClassifier"
+    
     ] # List of all public facing classes
 __all__ = allowed_classes
