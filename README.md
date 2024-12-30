@@ -116,4 +116,3 @@ This project is licensed under the GNU General Public License. See the `LICENSE`
 </div>
 
 For inquiries, please contact the maintainers through the GitHub repository or email support.
-
