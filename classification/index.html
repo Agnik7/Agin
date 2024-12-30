@@ -639,11 +639,92 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
+  <a href="#non-linear-svm-classifier" class="md-nav__link">
     <span class="md-ellipsis">
-      Conclusion
+      Non-Linear SVM Classifier
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Non-Linear SVM Classifier">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usage_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fitx_train-y_train_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      fit(x_train, y_train)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#predictx_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      predict(x)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metricsy_pred-y_test_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      metrics(y_pred, y_test)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1082,11 +1163,92 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
+  <a href="#non-linear-svm-classifier" class="md-nav__link">
     <span class="md-ellipsis">
-      Conclusion
+      Non-Linear SVM Classifier
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Non-Linear SVM Classifier">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usage_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fitx_train-y_train_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      fit(x_train, y_train)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#predictx_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      predict(x)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metricsy_pred-y_test_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      metrics(y_pred, y_test)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1112,6 +1274,7 @@
 <li><strong>Naive Bayes Classifier</strong></li>
 <li><strong>K-Nearest Neighbors (KNN) Classifier</strong></li>
 <li><strong>Linear SVM Classifier</strong></li>
+<li><strong>Non-Linear SVM Classifier</strong></li>
 </ul>
 <h2 id="logistic-regression"><strong>Logistic Regression</strong></h2>
 <p>The <code>LogisticRegression</code> class provides methods to train a logistic regression model using gradient descent with optional regularization, make predictions, and evaluate the model's performance. It can be imported directly from <code>agin</code> or from <code>agin.regression</code>.</p>
@@ -1330,13 +1493,12 @@ print(&quot;F1 Score:&quot;, f1_score)
 <ul>
 <li>Stores the training data for use in distance calculations and predictions.</li>
 <li><strong>Args</strong>:<ul>
-<li><code>x_train</code></li>
+<li><code>x_train</code> (list or numpy.ndarray): A 2D array containing the training data for independent variables.</li>
+<li><code>y_train</code> (list or numpy.ndarray): A 1D array containing the true class labels for the dependent variable.</li>
 </ul>
 </li>
+<li><strong>Returns</strong>: None. Updates the model with training data.</li>
 </ul>
-<p>(list or numpy.ndarray): A 2D array containing the training data for independent variables.
-     - <code>y_train</code> (list or numpy.ndarray): A 1D array containing the true class labels for the dependent variable.
-   - <strong>Returns</strong>: None. Updates the model with training data.</p>
 <h4 id="predictx_test_1"><strong><code>predict(x_test)</code></strong></h4>
 <ul>
 <li>Predicts the class label for each sample in the test data.</li>
@@ -1408,13 +1570,15 @@ print(&quot;F1 Score:&quot;, f1_score)
 </ul>
 <h4 id="predictx"><strong><code>predict(x)</code></strong></h4>
 <ul>
-<li>Predicts class labels for the given feature data.</li>
-<li><strong>Args</strong>: <code>x</code> (numpy.ndarray or pandas.DataFrame): Feature data.</li>
-<li><strong>Returns</strong>: numpy.ndarray of predicted class labels.</li>
+<li>Predicts class labels for the given</li>
 </ul>
+<p>feature data.
+   - <strong>Args</strong>:
+     - <code>x</code> (numpy.ndarray or pandas.DataFrame): Feature data.
+   - <strong>Returns</strong>: numpy.ndarray of predicted class labels.</p>
 <h4 id="metricsy_pred-y_test_3"><strong><code>metrics(y_pred, y_test)</code></strong></h4>
 <ul>
-<li>Computes accuracy, precision, recall, and F1-score for classification.</li>
+<li>Computes various evaluation metrics for classification.</li>
 <li><strong>Args</strong>:<ul>
 <li><code>y_pred</code> (numpy.ndarray): Predicted labels.</li>
 <li><code>y_test</code> (numpy.ndarray): True labels.</li>
@@ -1422,8 +1586,83 @@ print(&quot;F1 Score:&quot;, f1_score)
 </li>
 <li><strong>Returns</strong>: Tuple containing accuracy, precision, recall, and F1-score.</li>
 </ul>
-<h2 id="conclusion"><strong>Conclusion</strong></h2>
-<p>The <code>classification</code> module in Agin provides simple-to-use classes for various classification algorithms like Logistic Regression, Naive Bayes, KNN, and Linear SVM. These models can be trained, evaluated, and deployed easily with the included functions.</p>
+<h2 id="non-linear-svm-classifier"><strong>Non-Linear SVM Classifier</strong></h2>
+<p>The <code>NonLinearSVMClassifier</code> class implements the Support Vector Machine (SVM) algorithm using a non-linear kernel (e.g., RBF, polynomial) to classify data that cannot be separated by a straight line. The class supports multiple kernel types and hyperparameter tuning.</p>
+<h3 id="usage_4"><strong>Usage</strong></h3>
+<p>The <code>NonLinearSVMClassifier</code> class can be imported directly from <code>agin</code> or from <code>agin.classification</code>.</p>
+<pre><code class="language-python">from agin import NonLinearSVMClassifier
+# or
+from agin.classification import NonLinearSVMClassifier
+</code></pre>
+<h4 id="example_4"><strong>Example</strong></h4>
+<pre><code class="language-python"># Option 1: Importing directly from agin
+from agin import NonLinearSVMClassifier
+
+# Option 2: Importing from agin.classification
+from agin.classification import NonLinearSVMClassifier
+
+# Training data
+x_train = [[1, 2], [2, 3], [3, 4], [4, 5]]
+y_train = [0, 1, 0, 1]
+
+# Initialize the model
+model = NonLinearSVMClassifier(kernel='rbf', C=1.0, gamma='scale', max_iter=100)
+
+# Fit the model
+model.fit(x_train, y_train)
+
+# Predict using the model
+x_test = [[5, 6], [6, 7]]
+y_pred = model.predict(x_test)
+
+print(&quot;Predictions:&quot;, y_pred)
+
+# Evaluate the model metrics
+y_test = [1, 0]
+accuracy, precision, recall, f1_score = model.metrics(y_pred, y_test)
+print(&quot;Accuracy:&quot;, accuracy)
+print(&quot;Precision:&quot;, precision)
+print(&quot;Recall:&quot;, recall)
+print(&quot;F1 Score:&quot;, f1_score)
+</code></pre>
+<h3 id="methods_4"><strong>Methods</strong></h3>
+<h4 id="fitx_train-y_train_3"><strong><code>fit(x_train, y_train)</code></strong></h4>
+<ul>
+<li>Trains the non-linear SVM model using the specified kernel.</li>
+<li><strong>Args</strong>:<ul>
+<li><code>x_train</code> (numpy.ndarray or pandas.DataFrame): Training feature data.</li>
+<li><code>y_train</code> (numpy.ndarray or pandas.DataFrame): Target labels.</li>
+</ul>
+</li>
+<li><strong>Returns</strong>: The trained NonLinearSVMClassifier model.</li>
+</ul>
+<h4 id="predictx_1"><strong><code>predict(x)</code></strong></h4>
+<ul>
+<li>Predicts class labels for the given feature data.</li>
+<li><strong>Args</strong>:<ul>
+<li><code>x</code> (numpy.ndarray or pandas.DataFrame): Feature data.</li>
+</ul>
+</li>
+<li><strong>Returns</strong>: numpy.ndarray of predicted class labels.</li>
+</ul>
+<h4 id="metricsy_pred-y_test_4"><strong><code>metrics(y_pred, y_test)</code></strong></h4>
+<ul>
+<li>Computes various evaluation metrics for classification.</li>
+<li><strong>Args</strong>:<ul>
+<li><code>y_pred</code> (numpy.ndarray): Predicted labels.</li>
+<li><code>y_test</code> (numpy.ndarray): True labels.</li>
+</ul>
+</li>
+<li><strong>Returns</strong>: Tuple containing accuracy, precision, recall, and F1-score.</li>
+</ul>
+<h3 id="parameters_1"><strong>Parameters</strong></h3>
+<ul>
+<li><code>kernel</code> (str): The kernel function to use ('linear', 'poly', 'rbf', 'sigmoid'). Default is 'rbf'.</li>
+<li><code>C</code> (float): Regularization parameter. Default is 1.0.</li>
+<li><code>gamma</code> (str or float): Kernel coefficient for 'rbf', 'poly', and 'sigmoid'. Default is 'scale'.</li>
+<li><code>degree</code> (int): Degree of the polynomial kernel function ('poly'). Default is 3.</li>
+<li><code>max_iter</code> (int): Maximum number of iterations for optimization. Default is 1000.</li>
+</ul>
 
 
 
