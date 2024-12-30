@@ -5,6 +5,7 @@ from .linear_svm import LinearSVMClassifier
 from .nonlinear_svm import NonLinearSVM
 from .decision_tree_classifier import DecisionTreeClassifier
 from .linear_svm import LinearSVMClassifier
+from .nonlinear_svm import NonLinearSVM
 allowed_classes = [
     "LogisticRegression",
     "NaiveBayesClassifier",

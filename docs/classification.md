@@ -370,7 +370,7 @@ print("F1 Score:", f1_score)
    - **Returns**: numpy.ndarray of predicted class labels.
 
 #### **`metrics(y_pred, y_test)`**
-   - Computes accuracy, precision, recall, and F1-score for classification.
+   - Computes various evaluation metrics for classification.
    - **Args**:
      - `y_pred` (numpy.ndarray): Predicted labels.
      - `y_test` (numpy.ndarray): True labels.
