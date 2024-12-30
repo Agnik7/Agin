@@ -1,3 +1,15 @@
+
+<div align="center">
+  <img src="https://img.shields.io/pypi/dm/AginPy" alt="PyPI - Downloads"/>
+  <img src="https://img.shields.io/github/issues/Agnik7/Agin" alt="GitHub Issues"/>
+  <img src="https://img.shields.io/github/issues-pr/Agnik7/Agin" alt="GitHub Pull Requests"/>
+  <img src="https://img.shields.io/pypi/l/AginPy" alt="PyPI - License"/>
+  <img src="https://img.shields.io/github/watchers/Agnik7/AginPy" alt="GitHub watchers"/>
+  <img src="https://img.shields.io/pypi/v/AginPy" alt="PyPI - Version"/>
+  <img src="https://img.shields.io/github/commit-activity/t/Agnik7/Agin/main" alt="GitHub commit activity (branch)"/>
+  <img src="https://img.shields.io/github/contributors/Agnik7/Agin" alt="GitHub contributors"/>
+</div>
+
 # Agin
 
 **Agin** is a one-stop machine learning solution designed to streamline your ML workflows with easy-to-use utilities and a flexible structure.
@@ -33,7 +45,7 @@ It's recommended to use a virtual environment for managing dependencies. Below a
 2. Run the following commands:
    ```bash
    python -m venv venv
-   venv\Scripts\activate
+   venv/Scripts/activate
    ```
 
 #### **Linux/MacOS**
@@ -84,3 +96,23 @@ Contributions are welcome! To contribute:
 
 ## **License**
 This project is licensed under the GNU General Public License. See the `LICENSE` file for details.
+## **Maintained By**
+**Agin** is maintained by the following individuals:
+
+<div style="display: flex; align-items: center; margin-bottom: 20px;">
+    <img src="https://avatars.githubusercontent.com/u/77234005?v=4" alt="Agnik Bakshi" style="margin-right: 20px; border-radius: 50%; height:100px; width:100px;">
+    <a href="https://github.com/Agnik7" style="color:white;">
+        <strong>Agnik Bakshi</strong><br>
+        Maintainer and Contributor @AginPy
+    </a>
+</div>
+
+<div style="display: flex; align-items: center; margin-bottom: 20px;">
+    <img src="https://avatars.githubusercontent.com/u/112919974?v=4" alt="Indranjana Chatterjee" style="margin-right: 20px; border-radius: 50%; height:100px; width:100px;">
+    <a href="https://github.com/IndranjanaChatterjee" style="color:white;">
+        <strong>Indranjana Chatterjee</strong><br>
+        Maintainer and Contributor @AginPy
+    </a>
+</div>
+
+For inquiries, please contact the maintainers through the GitHub repository or email support.

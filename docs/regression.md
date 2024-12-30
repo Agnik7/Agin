@@ -6,6 +6,8 @@ The `regression` module contains implementations of regression models. Currently
 - **Multilinear Regression**
 - **Polynomial Regression**
 - **K-Nearest Neighbors (KNN) Regression**
+- **Decision Tree Regressor**
+- **Random Forest Regressor**
 
 ## **Linear Regression**
 The `LinearRegression` class provides methods to train a linear regression model, make predictions, and evaluate the model's performance. It can be imported directly from `agin` or from `agin.regression`.
@@ -255,3 +257,151 @@ print("R2 Score:", r2)
    - **Args**: `x_test` (numpy.ndarray or pandas.DataFrame), `y_test` (numpy.ndarray or pandas.Series)
    - **Returns**: R² score as a float.
 
+## **Decision Tree Regressor**
+
+The `DecisionTreeRegressor` class provides a regression model using a decision tree algorithm. It supports custom configurations like maximum depth, minimum samples per split, and minimum samples per leaf for controlling tree growth and preventing overfitting.
+
+### **Usage**
+The `DecisionTreeRegressor` class can be imported directly from the `agin` package or from the `agin.regression` module:
+
+```python
+from agin import DecisionTreeRegressor
+# or
+from agin.regression import DecisionTreeRegressor
+```
+
+#### **Example**
+
+```python
+# Option 1: Importing directly from agin
+from agin import DecisionTreeRegressor
+
+# Option 2: Importing from agin.regression
+from agin.regression import DecisionTreeRegressor
+
+# Training data
+x_train = [[1], [2], [3], [4], [5]]
+y_train = [2.5, 3.5, 7.5, 9.0, 12.0]
+
+# Initialize the model
+model = DecisionTreeRegressor(max_depth=3, min_samples_split=2, random_state=42)
+
+# Fit the model
+model.fit(x_train, y_train)
+
+# Predict using the model
+x_test = [[1.5], [2.5], [3.5]]
+y_pred = model.predict(x_test)
+
+print("Predictions:", y_pred)
+
+# Evaluate the model metrics
+y_test = [3.0, 6.0, 8.5]
+mse, r2 = model.metrics(y_pred, y_test)
+print("Mean Squared Error:", mse)
+print("R2 Score:", r2)
+```
+
+### **Methods**
+
+#### **`fit(x_train, y_train)`**
+   - Builds the decision tree from training data.
+   - **Args**: 
+     - `x_train` (numpy.ndarray or pandas.DataFrame): Training features.
+     - `y_train` (numpy.ndarray or pandas.Series): Training target values.
+   - **Returns**: The fitted `DecisionTreeRegressor` instance.
+
+#### **`predict(x_test)`**
+   - Predicts target values for the given test data using the decision tree.
+   - **Args**: 
+     - `x_test` (numpy.ndarray or pandas.DataFrame): Test data features.
+   - **Returns**: numpy.ndarray of predicted target values.
+
+#### **`metrics(y_pred, y_test)`**
+   - Calculates evaluation metrics like Mean Squared Error (MSE) and R² Score.
+   - **Args**: 
+     - `y_pred` (numpy.ndarray): Predicted target values.
+     - `y_test` (numpy.ndarray): True target values.
+   - **Returns**: Tuple containing MSE and R² Score.
+
+#### **Attributes**
+- **`max_depth`**: The maximum depth of the tree.
+- **`min_samples_split`**: Minimum number of samples required to split a node.
+- **`min_samples_leaf`**: Minimum number of samples required to form a leaf node.
+- **`random_state`**: Random seed for reproducibility.
+- **`root`**: The root node of the decision tree.
+
+## **Random Forest Regressor**
+
+The `RandomForestRegressor` class implements a regression model using an ensemble of decision trees. It provides methods to train the model, make predictions, and evaluate its performance. This regressor is robust to overfitting and can capture non-linear relationships effectively.
+
+### **Usage**
+
+The `RandomForestRegressor` class can be imported directly from the `agin` package or from the `agin.regression` module:
+
+```python
+from agin import RandomForestRegressor
+# or
+from agin.regression import RandomForestRegressor
+```
+
+#### **Example**
+
+```python
+# Option 1: Importing directly from agin
+from agin import RandomForestRegressor
+
+# Option 2: Importing from agin.regression
+from agin.regression import RandomForestRegressor
+
+# Training data
+x_train = [[1], [2], [3], [4], [5]]
+y_train = [2.5, 3.5, 7.5, 9.0, 12.0]
+
+# Initialize the model
+model = RandomForestRegressor(n_estimators=100, max_depth=5, random_state=42)
+
+# Fit the model
+model.fit(x_train, y_train)
+
+# Predict using the model
+x_test = [[1.5], [2.5], [3.5]]
+y_pred = model.predict(x_test)
+
+print("Predictions:", y_pred)
+
+# Evaluate the model metrics
+y_test = [3.0, 6.0, 8.5]
+mse, r2 = model.metrics(y_pred, y_test)
+print("Mean Squared Error:", mse)
+print("R2 Score:", r2)
+```
+
+### **Methods**
+
+#### **`fit(x_train, y_train)`**
+   - Trains the random forest model using the training data.
+   - **Args**: 
+     - `x_train` (numpy.ndarray or pandas.DataFrame): Training features.
+     - `y_train` (numpy.ndarray or pandas.Series): Training target values.
+   - **Returns**: The fitted `RandomForestRegressor` instance.
+
+#### **`predict(x_test)`**
+   - Predicts target values for the given test data using the trained ensemble of trees.
+   - **Args**: 
+     - `x_test` (numpy.ndarray or pandas.DataFrame): Test data features.
+   - **Returns**: numpy.ndarray of predicted target values.
+
+#### **`metrics(y_pred, y_test)`**
+   - Calculates evaluation metrics like Mean Squared Error (MSE) and R² Score.
+   - **Args**: 
+     - `y_pred` (numpy.ndarray): Predicted target values.
+     - `y_test` (numpy.ndarray): True target values.
+   - **Returns**: Tuple containing MSE and R² Score.
+
+#### **Attributes**
+- **`n_estimators`**: The number of trees in the forest (default: 100).
+- **`max_depth`**: The maximum depth of each tree (default: None).
+- **`min_samples_split`**: Minimum number of samples required to split a node (default: 2).
+- **`min_samples_leaf`**: Minimum number of samples required to form a leaf node (default: 1).
+- **`random_state`**: Random seed for reproducibility.
