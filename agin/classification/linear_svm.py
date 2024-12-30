@@ -18,7 +18,7 @@ class LinearSVMClassifier:
         self.w=None
         self.b=None
         
-    def fit(self,x,y):
+    def fit(self,x_train,y_train):
         """
         Trains the Linear SVM model by optimizing the weight vector and bias term using gradient descent.
 
@@ -32,8 +32,8 @@ class LinearSVMClassifier:
         This method optimizes the following objective:
             Minimize: 1/2 * ||w||^2 + C * Σ(max(0, 1 - y_i * (w^T * x_i + b)))
         """
-        x_train=np.array(x)
-        y_train=np.array(y)
+        x_train=np.array(x_train)
+        y_train=np.array(y_train)
         
         # Initialize weight vector and bias term
         self.w=np.zeros(x_train.shape[1])
@@ -125,51 +125,3 @@ class LinearSVMClassifier:
         f1_score = 2 * (precision * recall) / (precision + recall) if (precision + recall) != 0 else 0
         
         return accuracy, precision, recall, f1_score
-    
-
-
-if __name__ == "__main__":
-    # Sample dataset
-    # Features: Two-dimensional for simplicity
-    X_train = np.array([
-        [2, 3],
-        [1, 1],
-        [2, 1],
-        [3, 3],
-        [1, 2],
-        [4, 5],
-        [1, 3],
-        [3, 4]
-    ])
-    # Labels: +1 or -1
-    y_train = np.array([1, -1, -1, 1, -1, 1, -1, 1])
-    
-    # Test dataset
-    X_test = np.array([
-        [2, 2],
-        [1, 4],
-        [3, 1],
-        [5, 5]
-    ])
-    y_test = np.array([1, -1, -1, 1])
-    
-    # Create and train the SVM model
-    svm = LinearSVMClassifier( learning_rate=0.01,regularization_strength=0.1,num_iterations=1500)
-    svm.fit(X_train, y_train)
-    
-    # Make predictions
-    y_pred = svm.predict(X_test)
-    
-    # Calculate metrics
-    accuracy, precision, recall, f1_score = svm.metrics(y_pred, y_test)
-    
-    # Output the results
-    print("Predictions:", y_pred)
-    print("True Labels:", y_test)
-    print(f"Accuracy: {accuracy:.2f}")
-    print(f"Precision: {precision:.2f}")
-    print(f"Recall: {recall:.2f}")
-    print(f"F1 Score: {f1_score:.2f}")
-                             
-        
-        
