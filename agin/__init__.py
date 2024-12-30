@@ -13,7 +13,8 @@ from .classification import (
     LogisticRegression,
     NaiveBayesClassifier,
     KNNClassifier,
-    LinearSVMClassifier
+    LinearSVMClassifier,
+    NonLinearSVM
     
 )
 
@@ -28,7 +29,8 @@ allowed_classes = [
     "NaiveBayesClassifier",
     "KNNClassifier",
     "KNNRegressor",
-    "LinearSVMClassifier"
+    "LinearSVMClassifier",
+    "NonLinearSVM"
     
     ] # List of all public facing classes
 __all__ = allowed_classes

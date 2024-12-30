@@ -1,3 +1,4 @@
+
 # **Classification**
 
 The `classification` module contains implementations of classification models. Currently, the package supports:
@@ -6,6 +7,7 @@ The `classification` module contains implementations of classification models. C
 - **Naive Bayes Classifier**
 - **K-Nearest Neighbors (KNN) Classifier**
 - **Linear SVM Classifier**
+- **Non-Linear SVM Classifier**
 
 ## **Logistic Regression**
 The `LogisticRegression` class provides methods to train a logistic regression model using gradient descent with optional regularization, make predictions, and evaluate the model's performance. It can be imported directly from `agin` or from `agin.regression`.
@@ -222,9 +224,7 @@ print("F1 Score:", f1_score)
 #### **`fit(x_train, y_train)`**
    - Stores the training data for use in distance calculations and predictions.
    - **Args**:
-     - `x_train`
-
- (list or numpy.ndarray): A 2D array containing the training data for independent variables.
+     - `x_train` (list or numpy.ndarray): A 2D array containing the training data for independent variables.
      - `y_train` (list or numpy.ndarray): A 1D array containing the true class labels for the dependent variable.
    - **Returns**: None. Updates the model with training data.
 
@@ -296,16 +296,90 @@ print("F1 Score:", f1_score)
    - **Returns**: The trained LinearSVMClassifier model.
 
 #### **`predict(x)`**
-   - Predicts class labels for the given feature data.
-   - **Args**: `x` (numpy.ndarray or pandas.DataFrame): Feature data.
+   - Predicts class labels for the given
+
+ feature data.
+   - **Args**:
+     - `x` (numpy.ndarray or pandas.DataFrame): Feature data.
    - **Returns**: numpy.ndarray of predicted class labels.
 
 #### **`metrics(y_pred, y_test)`**
-   - Computes accuracy, precision, recall, and F1-score for classification.
+   - Computes various evaluation metrics for classification.
    - **Args**:
      - `y_pred` (numpy.ndarray): Predicted labels.
      - `y_test` (numpy.ndarray): True labels.
    - **Returns**: Tuple containing accuracy, precision, recall, and F1-score.
 
-## **Conclusion**
-The `classification` module in Agin provides simple-to-use classes for various classification algorithms like Logistic Regression, Naive Bayes, KNN, and Linear SVM. These models can be trained, evaluated, and deployed easily with the included functions.
+## **Non-Linear SVM Classifier**
+The `NonLinearSVMClassifier` class implements the Support Vector Machine (SVM) algorithm using a non-linear kernel (e.g., RBF, polynomial) to classify data that cannot be separated by a straight line. The class supports multiple kernel types and hyperparameter tuning.
+
+### **Usage**
+The `NonLinearSVMClassifier` class can be imported directly from `agin` or from `agin.classification`.
+
+```python
+from agin import NonLinearSVMClassifier
+# or
+from agin.classification import NonLinearSVMClassifier
+```
+
+#### **Example**
+
+```python
+# Option 1: Importing directly from agin
+from agin import NonLinearSVMClassifier
+
+# Option 2: Importing from agin.classification
+from agin.classification import NonLinearSVMClassifier
+
+# Training data
+x_train = [[1, 2], [2, 3], [3, 4], [4, 5]]
+y_train = [0, 1, 0, 1]
+
+# Initialize the model
+model = NonLinearSVMClassifier(kernel='rbf', C=1.0, gamma='scale', max_iter=100)
+
+# Fit the model
+model.fit(x_train, y_train)
+
+# Predict using the model
+x_test = [[5, 6], [6, 7]]
+y_pred = model.predict(x_test)
+
+print("Predictions:", y_pred)
+
+# Evaluate the model metrics
+y_test = [1, 0]
+accuracy, precision, recall, f1_score = model.metrics(y_pred, y_test)
+print("Accuracy:", accuracy)
+print("Precision:", precision)
+print("Recall:", recall)
+print("F1 Score:", f1_score)
+```
+
+### **Methods**
+#### **`fit(x_train, y_train)`**
+   - Trains the non-linear SVM model using the specified kernel.
+   - **Args**:
+     - `x_train` (numpy.ndarray or pandas.DataFrame): Training feature data.
+     - `y_train` (numpy.ndarray or pandas.DataFrame): Target labels.
+   - **Returns**: The trained NonLinearSVMClassifier model.
+
+#### **`predict(x)`**
+   - Predicts class labels for the given feature data.
+   - **Args**:
+     - `x` (numpy.ndarray or pandas.DataFrame): Feature data.
+   - **Returns**: numpy.ndarray of predicted class labels.
+
+#### **`metrics(y_pred, y_test)`**
+   - Computes various evaluation metrics for classification.
+   - **Args**:
+     - `y_pred` (numpy.ndarray): Predicted labels.
+     - `y_test` (numpy.ndarray): True labels.
+   - **Returns**: Tuple containing accuracy, precision, recall, and F1-score.
+
+### **Parameters**
+- `kernel` (str): The kernel function to use ('linear', 'poly', 'rbf', 'sigmoid'). Default is 'rbf'.
+- `C` (float): Regularization parameter. Default is 1.0.
+- `gamma` (str or float): Kernel coefficient for 'rbf', 'poly', and 'sigmoid'. Default is 'scale'.
+- `degree` (int): Degree of the polynomial kernel function ('poly'). Default is 3.
+- `max_iter` (int): Maximum number of iterations for optimization. Default is 1000.
