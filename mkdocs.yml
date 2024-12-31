@@ -14,6 +14,7 @@ nav:
   - Home: index.md
   - Classification: classification.md
   - Regression: regression.md
+  - Neural Network: neural.md
   - Utils: utils.md
 extra:
   generator: false

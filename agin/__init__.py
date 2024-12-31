@@ -11,6 +11,9 @@ from .regression import (
     LassoRegression,
     ElasticNetRegression
 )
+from .neural_network import (
+    NeuralNetwork
+)
 from .preprocessing import(
     MinMaxScaler
 )
@@ -44,6 +47,7 @@ allowed_classes = [
     "RandomForestRegressor",
     "RidgeRegression",
     "LassoRegression",
-    "ElasticNetRegression"
+    "ElasticNetRegression",
+    "NeuralNetwork"
     ] # List of all public facing classes
 __all__ = allowed_classes
