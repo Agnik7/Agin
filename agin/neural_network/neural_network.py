@@ -109,42 +109,42 @@ class NeuralNetwork:
         for layer in self.layers:
             layer.update_parameters(self.learning_rate)
 
-    def fit(self, x, y):
+    def fit(self, x_train, y_train):
         """
         Train the neural network using gradient descent and forward/backward propagation.
 
         Args:
-            x (np.ndarray): The input feature data for training.
-            y (np.ndarray): The true labels (one-hot encoded) for the data.
+            x_train (np.ndarray): The input feature data for training.
+            y_train (np.ndarray): The true labels (one-hot encoded) for the data.
 
         Returns:
             None: Updates the model's parameters during training.
         """
-        x = self.normalize(x)
+        x_train = self.normalize(x_train)
         self.costs = []
 
         for i in range(self.iterations):
-            activations = self.forward_propagation(x)
-            cost = self.cost_function(activations[-1], y)
-            self.backward_propagation(x, y, activations)
+            activations = self.forward_propagation(x_train)
+            cost = self.cost_function(activations[-1], y_train)
+            self.backward_propagation(x_train, y_train, activations)
             self.update_parameters()
             self.costs.append(cost)
 
             if i % (self.iterations // 10) == 0:
                 print(f"Cost after iteration {i}: {cost:.4f}")
 
-    def predict(self, x):
+    def predict(self, x_test):
         """
         Predict the output classes for given input data.
 
         Args:
-            x (np.ndarray): The input feature data for prediction.
+            x_test (np.ndarray): The input feature data for prediction.
 
         Returns:
             np.ndarray: The predicted class labels.
         """
-        x = self.normalize(x)
-        activations = self.forward_propagation(x)
+        x_test = self.normalize(x_test)
+        activations = self.forward_propagation(x_test)
         return np.argmax(activations[-1], axis=0)
 
     def metrics(self, y_pred, y_test):

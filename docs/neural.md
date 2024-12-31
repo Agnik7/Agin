@@ -48,11 +48,11 @@ print(f"F1 Score: {f1_score:.2f}%")
 ```
 
 ### **Methods**
-#### **`fit(x, y)`**
+#### **`fit(x_train, y_train)`**
    - Trains the neural network by adjusting the weights using forward propagation, backward propagation, and gradient descent.
    - **Args**:
-     - `x` (numpy.ndarray): Training feature data.
-     - `y` (numpy.ndarray): One-hot encoded target labels.
+     - `x_train` (numpy.ndarray): Training feature data.
+     - `y_train` (numpy.ndarray): One-hot encoded target labels.
    - **Returns**: None. The model's weights are updated during training.
 
 #### **`predict(x)`**
