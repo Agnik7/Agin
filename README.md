@@ -1,8 +1,4 @@
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/14081022-1685-4e3e-a37e-ba05e21abb03" alt="AGIN LOGO" height="500" width="500"/>
-</div>
-<br/>
-<div align="center">
   <img src="https://img.shields.io/pypi/dm/AginPy" alt="PyPI - Downloads"/>
   <img src="https://img.shields.io/github/issues/Agnik7/Agin" alt="GitHub Issues"/>
   <img src="https://img.shields.io/github/issues-pr/Agnik7/Agin" alt="GitHub Pull Requests"/>
@@ -11,6 +7,10 @@
   <img src="https://img.shields.io/pypi/v/AginPy" alt="PyPI - Version"/>
   <img src="https://img.shields.io/github/commit-activity/t/Agnik7/Agin/main" alt="GitHub commit activity (branch)"/>
   <img src="https://img.shields.io/github/contributors/Agnik7/Agin" alt="GitHub contributors"/>
+</div>
+<br/>
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/14081022-1685-4e3e-a37e-ba05e21abb03" alt="AGIN LOGO" height="500" width="500"/>
 </div>
 
 # Agin
