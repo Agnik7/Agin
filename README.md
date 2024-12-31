@@ -1,4 +1,5 @@
 <div align="center">
+  <img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2FAgnik7%2FAgin&countColor=%23dce775&style=flat" alt="Agin Visitors"/>
   <img src="https://img.shields.io/pypi/dm/AginPy" alt="PyPI - Downloads"/>
   <img src="https://img.shields.io/github/issues/Agnik7/Agin" alt="GitHub Issues"/>
   <img src="https://img.shields.io/github/issues-pr/Agnik7/Agin" alt="GitHub Pull Requests"/>
@@ -30,6 +31,20 @@ To install the package, use:
 ```bash
 pip install AginPy
 ```
+## **Usage**
+
+Once installed, you can import and use the library as follows:
+
+```python
+from agin import Health
+
+# Create an instance of the Health class
+h = Health()
+
+# Check health status
+print(h.check_health())  # Output: Health status: Good
+```
+---
 
 ## **Setting up the Project Locally**
 ### **Step 1: Clone the Repository**
@@ -69,22 +84,6 @@ Install the package in **editable mode** to allow for modifications during devel
 
 ```bash
 pip install -e .
-```
-
----
-
-## **Usage**
-
-Once installed, you can import and use the library as follows:
-
-```python
-from agin import Health
-
-# Create an instance of the Health class
-h = Health()
-
-# Check health status
-print(h.check_health())  # Output: Health status: Good
 ```
 
 ---
