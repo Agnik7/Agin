@@ -4,7 +4,7 @@
   <img src="https://img.shields.io/github/issues/Agnik7/Agin" alt="GitHub Issues"/>
   <img src="https://img.shields.io/github/issues-pr/Agnik7/Agin" alt="GitHub Pull Requests"/>
   <img src="https://img.shields.io/pypi/l/AginPy" alt="PyPI - License"/>
-  <img src="https://img.shields.io/github/watchers/Agnik7/AginPy" alt="GitHub watchers"/>
+  <img src="https://img.shields.io/github/watchers/Agnik7/Agin" alt="GitHub watchers"/>
   <img src="https://img.shields.io/pypi/v/AginPy" alt="PyPI - Version"/>
   <img src="https://img.shields.io/github/commit-activity/t/Agnik7/Agin/main" alt="GitHub commit activity (branch)"/>
   <img src="https://img.shields.io/github/contributors/Agnik7/Agin" alt="GitHub contributors"/>
