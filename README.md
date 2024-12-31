@@ -11,7 +11,7 @@
 </div>
 <br/>
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/14081022-1685-4e3e-a37e-ba05e21abb03" alt="AGIN LOGO" height="500" width="500"/>
+  <img src="/assets/LOGO.png" alt="AGIN LOGO FOR README" height="500" width="500"/>
 </div>
 
 # Agin

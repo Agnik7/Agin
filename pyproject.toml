@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "AginPy"
-version = "0.1.0"
+version = "1.0.0"
 authors = [
     { name = "Agnik Bakshi", email="bakshi.agnik@gmail.com" },
     { name = "Indranjana Chatterjee", email="indranjanachatterjee@gmail.com" }
