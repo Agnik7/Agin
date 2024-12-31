@@ -319,13 +319,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#neural-network_1" class="md-nav__link">
+  <a href="#neuralnetwork" class="md-nav__link">
     <span class="md-ellipsis">
-      Neural Network
+      NeuralNetwork
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Neural Network">
+    <nav class="md-nav" aria-label="NeuralNetwork">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -407,6 +407,15 @@
   <a href="#attributes" class="md-nav__link">
     <span class="md-ellipsis">
       Attributes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes
     </span>
   </a>
   
@@ -472,13 +481,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#neural-network_1" class="md-nav__link">
+  <a href="#neuralnetwork" class="md-nav__link">
     <span class="md-ellipsis">
-      Neural Network
+      NeuralNetwork
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Neural Network">
+    <nav class="md-nav" aria-label="NeuralNetwork">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -565,6 +574,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -588,8 +606,8 @@
 <h1 id="neural-network"><strong>Neural Network</strong></h1>
 <p>The <code>neural_network</code> module contains implementations of neural network and deep learning models. Currently, the package supports:
 - <strong>Neural Network</strong></p>
-<h2 id="neural-network_1"><strong>Neural Network</strong></h2>
-<p>The <code>NeuralNetwork</code> class implements a basic multi-layer perceptron (MLP) model for multi-class classification using gradient descent. It utilizes the tanh activation function in the hidden layer and the softmax function in the output layer. The model is trained using forward propagation, backward propagation (backpropagation), and gradient descent. It can be imported directly from <code>agin</code> or from <code>agin.neural_network</code>.</p>
+<h2 id="neuralnetwork"><strong>NeuralNetwork</strong></h2>
+<p>The <code>NeuralNetwork</code> class implements a basic multi-layer perceptron (MLP) model for multi-class classification using gradient descent. It utilizes the tanh activation function in the hidden layers and the softmax function in the output layer. The model is trained using forward propagation, backward propagation (backpropagation), and gradient descent. It can be imported directly from <code>agin</code> or from <code>agin.neural_network</code>.</p>
 <h3 id="usage"><strong>Usage</strong></h3>
 <p>The <code>NeuralNetwork</code> class can be imported directly from the <code>agin</code> package or from the <code>agin.neural_network</code> module:</p>
 <pre><code class="language-python">from agin import NeuralNetwork
@@ -597,11 +615,8 @@
 from agin.neural_network import NeuralNetwork
 </code></pre>
 <h4 id="example"><strong>Example</strong></h4>
-<pre><code class="language-python"># Option 1: Importing directly from agin
+<pre><code class="language-python">import numpy as np
 from agin import NeuralNetwork
-
-# Option 2: Importing from agin.regression
-from agin.neural_network import NeuralNetwork
 
 # Training data
 x_train = np.random.randn(3, 1000)
@@ -611,28 +626,30 @@ x_test = np.random.randn(3, 200)
 y_test = np.eye(3)[np.random.choice(3, 200)].T
 
 # Neural network parameters
-n_x = x_train.shape[0]
-n_h = 5
-n_y = y_train.shape[0]
+layer_sizes = [3, 5, 3]
+learning_rate = 0.1
+iterations = 2000
+
 # Initialize the model
-model = NeuralNetwork(n_x, n_h, n_y, learning_rate=0.1, iterations=2000)
+model = NeuralNetwork(layer_sizes, learning_rate=learning_rate, iterations=iterations)
 model.fit(x_train, y_train)
-# Evaluate the model
-accuracy, precision, recall, f1_score = model.metrics(x_test, y_test)
-print(f&quot;\nAccuracy:  Custom: {accuracy:.2f}%&quot;)
-print(f&quot;Precision:  Custom: {precision:.2f}% &quot;)
-print(f&quot;Recall:  Custom: {recall:.2f}%&quot;)
-print(f&quot;F1:  Custom: {f1_score:.2f}%&quot;)
 
+# Predict and evaluate the model
+y_pred = model.predict(x_test)
+accuracy, precision, recall, f1_score = model.metrics(y_pred, y_test)
 
+print(f&quot;\nAccuracy: {accuracy:.2f}%&quot;)
+print(f&quot;Precision: {precision:.2f}%&quot;)
+print(f&quot;Recall: {recall:.2f}%&quot;)
+print(f&quot;F1 Score: {f1_score:.2f}%&quot;)
 </code></pre>
 <h3 id="methods"><strong>Methods</strong></h3>
 <h4 id="fitx_train-y_train"><strong><code>fit(x_train, y_train)</code></strong></h4>
 <ul>
-<li>Trains the neural network by adjusting the weights using backpropagation.</li>
+<li>Trains the neural network by adjusting the weights using forward propagation, backward propagation, and gradient descent.</li>
 <li><strong>Args</strong>:<ul>
-<li><code>x_train</code> (numpy.ndarray or pandas.DataFrame): Training feature data.</li>
-<li><code>y_train</code> (numpy.ndarray or pandas.DataFrame): Target labels.</li>
+<li><code>x_train</code> (numpy.ndarray): Training feature data.</li>
+<li><code>y_train</code> (numpy.ndarray): One-hot encoded target labels.</li>
 </ul>
 </li>
 <li><strong>Returns</strong>: None. The model's weights are updated during training.</li>
@@ -641,36 +658,40 @@ print(f&quot;F1:  Custom: {f1_score:.2f}%&quot;)
 <ul>
 <li>Predicts class labels for the given feature data.</li>
 <li><strong>Args</strong>:<ul>
-<li><code>x</code> (numpy.ndarray or pandas.DataFrame): Feature data.</li>
+<li><code>x</code> (numpy.ndarray): Feature data.</li>
 </ul>
 </li>
 <li><strong>Returns</strong>: numpy.ndarray of predicted class labels.</li>
 </ul>
 <h4 id="metricsy_pred-y_test"><strong><code>metrics(y_pred, y_test)</code></strong></h4>
 <ul>
-<li>Computes various evaluation metrics for classification.</li>
+<li>Computes evaluation metrics for classification.</li>
 <li><strong>Args</strong>:<ul>
 <li><code>y_pred</code> (numpy.ndarray): Predicted labels.</li>
-<li><code>y_test</code> (numpy.ndarray): True labels.</li>
+<li><code>y_test</code> (numpy.ndarray): One-hot encoded true labels.</li>
 </ul>
 </li>
 <li><strong>Returns</strong>: Tuple containing accuracy, precision, recall, and F1-score.</li>
 </ul>
 <h3 id="parameters"><strong>Parameters</strong></h3>
 <ul>
-<li><code>layers</code> (list of int): List specifying the number of neurons in each layer, including input and output layers. Example: <code>[2, 4, 1]</code> for a 2-input, 4-hidden, and 1-output layer network.</li>
-<li><code>activation</code> (str): The activation function to use for the hidden layers ('relu', 'sigmoid', 'tanh'). Default is 'relu'.</li>
-<li><code>learning_rate</code> (float): The learning rate for gradient descent. Default is 0.01.</li>
-<li><code>epochs</code> (int): The number of training iterations. Default is 1000.</li>
-<li><code>batch_size</code> (int): The number of samples per gradient update. Default is 32.</li>
+<li><code>layer_sizes</code> (list of int): List specifying the number of neurons in each layer, including input and output layers. Example: <code>[3, 5, 3]</code> for a 3-input, 5-hidden, and 3-output layer network.</li>
+<li><code>learning_rate</code> (float): The learning rate for gradient descent. Default is <code>0.01</code>.</li>
+<li><code>iterations</code> (int): The number of training iterations. Default is <code>1000</code>.</li>
+<li><code>init_method</code> (str): Initialization method for weights. Can be "he" or "xavier". Default is <code>"he"</code>.</li>
 </ul>
 <h3 id="attributes"><strong>Attributes</strong></h3>
 <ul>
-<li><code>weights</code> (list of numpy.ndarray): The weights for each layer of the network.</li>
-<li><code>biases</code> (list of numpy.ndarray): The biases for each layer.</li>
-<li><code>loss_history</code> (list): The history of the loss function during training.</li>
-<li><code>accuracy_history</code> (list): The history of the accuracy during training.</li>
+<li><code>layer_sizes</code> (list of int): The structure of the network, representing the number of neurons in each layer.</li>
+<li><code>learning_rate</code> (float): The learning rate for gradient descent.</li>
+<li><code>iterations</code> (int): The total number of training iterations.</li>
+<li><code>layers</code> (list of <code>Neuron</code>): The layers of the neural network, each represented as a <code>Neuron</code> object.</li>
+<li><code>costs</code> (list of float): The history of the cost function during training.</li>
+<li><code>mean</code> (numpy.ndarray): The mean of the training data (used for normalization).</li>
+<li><code>std</code> (numpy.ndarray): The standard deviation of the training data (used for normalization).</li>
 </ul>
+<h3 id="notes"><strong>Notes</strong></h3>
+<p>The <code>NeuralNetwork</code> class supports two weight initialization methods (<code>he</code> and <code>xavier</code>) to ensure stable training for deeper networks. Hidden layers use the <code>tanh</code> activation function, while the output layer applies the <code>softmax</code> function for multi-class classification.</p>
 
 
 
