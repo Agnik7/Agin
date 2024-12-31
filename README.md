@@ -1,8 +1,5 @@
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/14081022-1685-4e3e-a37e-ba05e21abb03" alt="AGIN LOGO" height="500" width="500"/>
-</div>
-<br/>
-<div align="center">
+  <img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2FAgnik7%2FAgin&countColor=%23dce775&style=flat" alt="Agin Visitors"/>
   <img src="https://img.shields.io/pypi/dm/AginPy" alt="PyPI - Downloads"/>
   <img src="https://img.shields.io/github/issues/Agnik7/Agin" alt="GitHub Issues"/>
   <img src="https://img.shields.io/github/issues-pr/Agnik7/Agin" alt="GitHub Pull Requests"/>
@@ -11,6 +8,10 @@
   <img src="https://img.shields.io/pypi/v/AginPy" alt="PyPI - Version"/>
   <img src="https://img.shields.io/github/commit-activity/t/Agnik7/Agin/main" alt="GitHub commit activity (branch)"/>
   <img src="https://img.shields.io/github/contributors/Agnik7/Agin" alt="GitHub contributors"/>
+</div>
+<br/>
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/14081022-1685-4e3e-a37e-ba05e21abb03" alt="AGIN LOGO" height="500" width="500"/>
 </div>
 
 # Agin
@@ -30,6 +31,20 @@ To install the package, use:
 ```bash
 pip install AginPy
 ```
+## **Usage**
+
+Once installed, you can import and use the library as follows:
+
+```python
+from agin import Health
+
+# Create an instance of the Health class
+h = Health()
+
+# Check health status
+print(h.check_health())  # Output: Health status: Good
+```
+---
 
 ## **Setting up the Project Locally**
 ### **Step 1: Clone the Repository**
@@ -73,22 +88,6 @@ pip install -e .
 
 ---
 
-## **Usage**
-
-Once installed, you can import and use the library as follows:
-
-```python
-from agin import Health
-
-# Create an instance of the Health class
-h = Health()
-
-# Check health status
-print(h.check_health())  # Output: Health status: Good
-```
-
----
-
 ## **Contributing**
 Contributions are welcome! To contribute:
 1. Fork the repository.
@@ -99,23 +98,3 @@ Contributions are welcome! To contribute:
 
 ## **License**
 This project is licensed under the GNU General Public License. See the `LICENSE` file for details.
-## **Maintained By**
-**Agin** is maintained by the following individuals:
-
-<div style="display: flex; align-items: center; margin-bottom: 20px;">
-    <img src="https://avatars.githubusercontent.com/u/77234005?v=4" alt="Agnik Bakshi" style="margin-right: 20px; border-radius: 50%; height:100px; width:100px;">
-    <a href="https://github.com/Agnik7" style="color:white;">
-        <strong>Agnik Bakshi</strong><br>
-        Maintainer and Contributor @AginPy
-    </a>
-</div>
-
-<div style="display: flex; align-items: center; margin-bottom: 20px;">
-    <img src="https://avatars.githubusercontent.com/u/112919974?v=4" alt="Indranjana Chatterjee" style="margin-right: 20px; border-radius: 50%; height:100px; width:100px;">
-    <a href="https://github.com/IndranjanaChatterjee" style="color:white;">
-        <strong>Indranjana Chatterjee</strong><br>
-        Maintainer and Contributor @AginPy
-    </a>
-</div>
-
-For inquiries, please contact the maintainers through the GitHub repository or email support.
